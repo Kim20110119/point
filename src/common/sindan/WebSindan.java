@@ -38,7 +38,7 @@ public class WebSindan {
 			// 0.5秒待ち
 			Thread.sleep(500);
 			// 診断URL
-			String sindan_url = driver.findElements(By.xpath("//a[@role='button']")).get(i).getAttribute(TAG_HREF);
+			String sindan_url = driver.findElements(By.xpath("//a[@role='button']")).get(i).getAttribute(A_HREF);
 			// WEB診断
 			driver.get(sindan_url);
 			// 1秒待ち

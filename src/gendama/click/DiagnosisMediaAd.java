@@ -46,12 +46,12 @@ public class DiagnosisMediaAd {
 			// げん玉：モリゲー
 			driver.get(GENDAMA_AD_ENQ_LIST_URL);
 			// げん玉：モリモリアンケート件数
-			int enquete_count = driver.findElement(By.className(C_ENQUETE_BOX)).findElements(By.tagName(TAG_A)).size();
+			int enquete_count = driver.findElement(By.className(C_ENQUETE_BOX)).findElements(By.tagName(T_A)).size();
 			for(int interview_index = 1; interview_index < enquete_count;interview_index++){
 				// 「モリモリアンケートURL」
-				String morimori_link = driver.findElement(By.className(C_ENQUETE_BOX)).findElements(By.tagName(TAG_A)).get(interview_index).getAttribute(TAG_HREF);
+				String morimori_link = driver.findElement(By.className(C_ENQUETE_BOX)).findElements(By.tagName(T_A)).get(interview_index).getAttribute(A_HREF);
 				// 「モリモリアンケート」タイトルを取得する
-				String titel_text = driver.findElement(By.className(C_ENQUETE_BOX)).findElements(By.xpath("//dd[@class='title']")).get(interview_index).findElement(By.tagName(TAG_STRONG)).getText();
+				String titel_text = driver.findElement(By.className(C_ENQUETE_BOX)).findElements(By.xpath("//dd[@class='title']")).get(interview_index).findElement(By.tagName(T_STRONG)).getText();
 				if(titel_text.matches(S_SINDAN)){
 					Diagnosis.execute(driver, morimori_link);
 		        }
