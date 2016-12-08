@@ -29,6 +29,8 @@ public class HtmlConstants {
 	public static final String T_CHECKBOX = "checkbox";
 	/** 「iframe」 */
 	public static final String T_IFRAME = "iframe";
+	/** 「li」 */
+	public static final String T_LI = "li";
 
 	//==================================================================================================================
 	// Attribute

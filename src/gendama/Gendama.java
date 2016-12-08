@@ -1,19 +1,28 @@
 package gendama;
 
-import gendama.ad_areas.Reados;
-import gendama.click.DiagnosisMediaAd;
+import static common.constant.PointConstants.*;
 
-public class Gendama {
+import org.openqa.selenium.By;
 
-	public static void main(String[] args) {
-		// げん玉：クマクマ調査団
-		Reados reados = new Reados();
-		reados.execute();
-		// げん玉：モリモリアンケート
-		DiagnosisMediaAd dma = new DiagnosisMediaAd();
-		String end = dma.execute();
-		System.out.println(end);
+import common.Point;
 
+/**
+ * げん玉：共通処理
+ *
+ * @author kimC
+ *
+ */
+public class Gendama extends Point {
+
+	public Gendama() {
+		// げん玉：ログイン画面
+		driver.get(GENDAMA_LOGIN_URL);
+		// げん玉：ログインメールアドレス
+		driver.findElement(By.id("rwsid")).sendKeys(GENDAMA_LOGIN_MAIL);
+		// げん玉：ログインパスワード
+		driver.findElement(By.id("pass")).sendKeys(GENDAMA_LOGIN_PASSWORD);
+		// げん玉：ログインボタン
+		driver.findElement(By.name("login_page")).click();
 	}
 
 }

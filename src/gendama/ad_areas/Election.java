@@ -1,4 +1,4 @@
-package pointi.ad_areas;
+package gendama.ad_areas;
 
 import static common.Common.*;
 import static common.constant.HtmlConstants.*;
@@ -7,17 +7,17 @@ import static common.constant.PointConstants.*;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
-import pointi.Pointi;
+import gendama.Gendama;
 
 /**
  * =====================================================================================================================
- * ポイントインカム：クマクマ総選挙
+ * げん玉：クマクマ総選挙
  * =====================================================================================================================
  *
  * @author kimC
  *
  */
-public class Election extends Pointi {
+public class Election extends Gendama {
 	/** 「daily-points」 */
 	private static final String C_D_P = "daily-points";
 	/** 「クマクマ総選挙URL」 */
@@ -34,7 +34,7 @@ public class Election extends Pointi {
 	 */
 	public Election() {
 		// 「CMくじ」
-		driver.get(POINTI_CF_URL);
+		driver.get(GENDAMA_CM_URL);
 	}
 
 	/**
@@ -48,9 +48,10 @@ public class Election extends Pointi {
 	 *
 	 */
 	public Integer execute() {
-		try{
+		try {
 			// 「クマクマ総選挙URL」取得する
-			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(4).getAttribute(A_HREF);
+			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(6)
+					.getAttribute(A_HREF);
 			if (StringUtils.isNoneEmpty(election_url)) {
 				// 「クマクマ総選挙画面」
 				driver.get(election_url);
@@ -58,7 +59,7 @@ public class Election extends Pointi {
 				click(getByClass("start__button"));
 				// アンケート件数
 				enquete_count = driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).size();
-				if(enquete_count < 1){
+				if (enquete_count < 1) {
 					driver.quit();
 					return point_count;
 				}
@@ -67,8 +68,8 @@ public class Election extends Pointi {
 				// 投票処理をする
 				for (int i = 0; i < 500; i++) {
 					start();
-					if(restart_flag){
-						if(enquete_count < 1){
+					if (restart_flag) {
+						if (enquete_count < 1) {
 							driver.quit();
 							return point_count;
 						}
@@ -76,12 +77,12 @@ public class Election extends Pointi {
 					// 獲得ポイントカウント
 					point_count += 1;
 				}
-			}else{
-				System.out.println("=====クマクマ調査団URL取得失敗");
+			} else {
+				System.out.println("=====クマクマ総選挙URL取得失敗");
 			}
 			driver.quit();
 			return point_count;
-		}catch(Exception e){
+		} catch (Exception e) {
 			driver.quit();
 			System.out.println("===クマクマ総選挙失敗");
 			return point_count;
@@ -113,8 +114,8 @@ public class Election extends Pointi {
 			// 1秒待ち
 			sleep(1000);
 		} catch (Exception e) {
-			System.out.println("=====投票スタート失敗");
-			System.out.println("=====クマクマ調査団遷移再スタート");
+			System.out.println("=====選挙スタート失敗");
+			System.out.println("=====クマクマ総選挙遷移再スタート");
 			System.out.println("...");
 			System.out.println("...");
 			System.out.println("...");
@@ -133,16 +134,16 @@ public class Election extends Pointi {
 	 */
 	public void restart() {
 		try {
-			// 「クマクマ調査団画面」
+			// 「クマクマ総選挙画面」
 			driver.get(election_url);
-			// 「さっそく投票を始める！」
+			// 「アンケート開始」
 			click(getByClass("start__button"));
 			// アンケート件数
 			enquete_count = driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).size();
-			// 「投票画面」
+			// 「アンケート画面」
 			driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0).click();
 		} catch (Exception e) {
-			System.out.println("=====投票再スタート失敗");
+			System.out.println("=====選挙再スタート失敗");
 			System.out.println("...");
 			System.out.println("...");
 			System.out.println("...");

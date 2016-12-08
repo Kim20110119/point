@@ -1,17 +1,14 @@
 package pointi;
 
-import pointi.ad_areas.Election;
+import pointi.ad_areas.LocalQuizs;
 
 public class UnitPointi {
 
 	public static void main(String[] args) {
-		for(int i = 1; i <= 30; i++){
-			// 「クマクマ調査団」ポイント
-			Election election = new Election();
-			int election_point = election.execute();
-			System.out.println(election_point);
-		}
-
+		// 「クマクマ調査団」ポイント
+		LocalQuizs reados = new LocalQuizs();
+		int reados_point = reados.execute();
+		System.out.println("クマクマ調査団により獲得済みポイント：" + reados_point + "Pt");
 
 	}
 

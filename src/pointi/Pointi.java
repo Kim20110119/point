@@ -1,18 +1,36 @@
 package pointi;
 
-import pointi.ad_areas.Reados;
+import static common.constant.PointConstants.*;
 
-public class Pointi {
+import org.openqa.selenium.By;
 
-	public static void main(String[] args) {
-		for(int i = 1; i <= 30; i++){
-			// 「クマクマ調査団」ポイント
-			Reados reados = new Reados();
-			int reados_point = reados.execute();
-			System.out.println(reados_point);
-		}
+import common.Point;
 
+/**
+ * ポイントインカム：共通処理
+ *
+ * @author kimC
+ *
+ */
+public class Pointi extends Point {
+	/** 「email_address」 */
+	private static final String N_E_A = "email_address";
+	/** 「password」 */
+	private static final String N_P = "password";
+	/** 「submit」 */
+	private static final String N_S = "submit";
 
+	/**
+	 * Pointiコンストラクタ
+	 */
+	public Pointi() {
+		// 「ログイン画面」
+		driver.get(POINTI_LOGIN_URL);
+		// 「メールアドレス」
+		driver.findElement(By.name(N_E_A)).sendKeys(POINTI_LOGIN_MAIL);
+		// 「パスワード」
+		driver.findElement(By.name(N_P)).sendKeys(POINTI_LOGIN_PASSWORD);
+		// 「ログインボタン」
+		driver.findElement(By.name(N_S)).click();
 	}
-
 }
