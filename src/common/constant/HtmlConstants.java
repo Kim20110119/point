@@ -31,6 +31,11 @@ public class HtmlConstants {
 	public static final String T_IFRAME = "iframe";
 	/** 「li」 */
 	public static final String T_LI = "li";
+	/** 「button」 */
+	public static final String T_BUTTON = "button";
+	/** 「img」 */
+	public static final String T_IMG = "img";
+
 
 	//==================================================================================================================
 	// Attribute
@@ -39,6 +44,27 @@ public class HtmlConstants {
 	public static final String A_HREF = "href";
 	/** 「src」 */
 	public static final String A_SRC = "src";
+	/** 「target」 */
+	public static final String A_TARGET = "target";
+	/** 「type」 */
+	public static final String A_TYPE = "type";
+
+
+	//==================================================================================================================
+	// Value
+	//==================================================================================================================
+	/** 「_blank」 */
+	public static final String V_BLANK = "_blank";
+	/** 「mail」 */
+	public static final String V_MAIL = "mail";
+	/** 「password」 */
+	public static final String V_PASSWORD = "password";
+	/** 「pass」 */
+	public static final String V_PASS = "pass";
+	/** 「submit」 */
+	public static final String V_SUBMIT = "submit";
+
+
 
 	//==================================================================================================================
 	// Choice

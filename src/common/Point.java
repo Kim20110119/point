@@ -180,6 +180,19 @@ public class Point {
 	}
 
 	/**
+	 * ByxTagName取得処理
+	 *
+	 * @param String
+	 *            tag
+	 *
+	 * @return By tagName
+	 *
+	 */
+	public By getByTag(String tag) {
+		return By.tagName(tag);
+	}
+
+	/**
 	 * ByxId取得処理
 	 *
 	 * @param String

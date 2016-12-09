@@ -1,26 +1,21 @@
 package moppy;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import static common.constant.HtmlConstants.*;
+import static common.constant.PointConstants.*;
 
-import common.sindan.WebSindan;
+import common.Point;
 
-public class Moppy {
+public class Moppy extends Point  {
 
-	public static void main(String[] args) {
-		System.setProperty("webdriver.chrome.driver","lib/chromedriver.exe");
-		// Chromeドライバー
-		WebDriver driver = new ChromeDriver();
-		try{
-			Boolean end = WebSindan.execute(driver,"http://shindan-apps.net/pointi?uid=38800457205gf69hj2rpgrofhp8v",0,1);
-			System.out.println(end);
-			driver.quit();
-		}catch(Exception e){
-			System.out.println("==========error==================");
-			driver.quit();
-		}
-
-
+	public Moppy() {
+		// モッピー：ログイン画面
+		driver.get(MOPPY_LOGIN_URL);
+		// モッピー：ログインメールアドレス
+		sendkeysByStr(getByName(V_MAIL), MOPPY_LOGIN_MAIL);
+		// モッピー：ログインパスワード
+		sendkeysByStr(getByName(V_PASS), MOPPY_LOGIN_PASSWORD);
+		// モッピー：ログインボタン
+		click(getByXpath(T_BUTTON, A_TYPE, V_SUBMIT));
 	}
 
 }

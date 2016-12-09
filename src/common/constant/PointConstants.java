@@ -27,6 +27,8 @@ public class PointConstants {
 	public static final String GENDAMA_AD_ENQ_LIST_URL = "http://mrga.service-navi.jp/ad/enq/list";
 	/** げん玉:CMくじURL */
 	public static final String GENDAMA_CM_URL = "http://www.gendama.jp/cl/?id=138368&u=1";
+	/** げん玉:WEB診断URL */
+	public static final String GENDAMA_WEB_SHINDAN_URL = "http://shindan-apps.net/gendama?uid=6187765";
 
 	/** げん玉:ログインメールアドレス */
 	public static final String GENDAMA_LOGIN_MAIL = "kimyea002@hotmail.com";
@@ -40,16 +42,41 @@ public class PointConstants {
 	public static final String GENDAMA_END_MESSAGE = ".*ポイントがもらえる質問がありません！また明日来てね！.*";
 
 	//==================================================================================================================
-	// げん玉
 	//==================================================================================================================
+	// ポイントインカム
+	//==================================================================================================================
+	//==================================================================================================================
+	// URL
 	/** ポイントインカム:ログインURL */
 	public static final String POINTI_LOGIN_URL = "http://pointi.jp/";
-	/** ポイントインカム:CMくじ */
+	/** ポイントインカム:CMくじURL */
 	public static final String POINTI_CF_URL = "http://pointi.jp/cf/";
+	/** ポイントインカム:リサーチURL */
+	public static final String POINTI_RESEARCH_URL = "http://pointi.jp/contents/research/";
+	/** ポイントインカム:WEB診断URL */
+	public static final String POINTI_WEB_SHINDAN_URL = "http://shindan-apps.net/pointi?uid=38800457205gf69hj2rpgrofhp8v";
+	/** ポイントインカム:プライス調査隊URL */
+	public static final String POINTI_PRICES_URL = "http://pointi.jp/api/prices.php";
+
+
+
+	// ログイン情報
 	/** ポイントインカム:ログインメールアドレス */
 	public static final String POINTI_LOGIN_MAIL = "kim20110119@hotmail.com";
 	/** ポイントインカム:ログインパスワード */
 	public static final String POINTI_LOGIN_PASSWORD = "20110119Jjz";
+
+	//==================================================================================================================
+	// モッピー
+	//==================================================================================================================
+	/** モッピー:ログインURL */
+	public static final String MOPPY_LOGIN_URL = "https://ssl.pc.moppy.jp/login/";
+	/** モッピー:ログインメールアドレス */
+	public static final String MOPPY_LOGIN_MAIL = "kim-c@softbank.ne.jp";
+	/** モッピー:ログインパスワード */
+	public static final String MOPPY_LOGIN_PASSWORD = "20110119Jjz";
+	/** モッピー:ゲームコンテンツURL */
+	public static final String MOPPY_GAMECONTENTS_URL = "http://pc.moppy.jp/gamecontents/";
 
 	//==================================================================================================================
 	// げん玉

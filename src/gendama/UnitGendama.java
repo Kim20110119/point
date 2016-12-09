@@ -1,12 +1,12 @@
 package gendama;
 
-import gendama.ad_areas.LocalQuizs;
+import gendama.shindan.Gendama_Shindan;
 
 public class UnitGendama {
 
 	public static void main(String[] args) {
 		// げん玉：クマクマ調査団
-		LocalQuizs forest= new LocalQuizs();
+		Gendama_Shindan forest= new Gendama_Shindan();
 		forest.execute();
 		System.out.println("終了");
 
