@@ -1,12 +1,12 @@
 package gendama.ad_areas;
 
-import static common.Common.*;
 import static common.constant.HtmlConstants.*;
 import static common.constant.PointConstants.*;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
+import common.quiz.Local_Quizs;
 import gendama.Gendama;
 
 /**
@@ -21,21 +21,9 @@ public class Gendama_LocalQuizs extends Gendama {
 
 	/** 「daily-points」 */
 	private static final String C_D_P = "daily-points";
-	/** 「change-image」 */
-	private static final String C_C_I = "change-image";
-	/** 「answer-select」 */
-	private static final String C_A_S = "answer-select";
-	/** 「warning」 */
-	private static final String I_W = "warning";
-	/** 「answer-button」 */
-	private static final String I_A_B = "answer-button";
-	/** 「start button」 */
-	private static final String N_S_B = "start button";
 
-
-
-	/** 「クマクマ総選挙URL」 */
-	String election_url;
+	/** 「ザ・ご当地検定URL」 */
+	String local_quizs_url;
 	/** 「獲得ポイント」 */
 	int point_count = 0;
 	/** 「再スタートフラグ」 */
@@ -48,7 +36,7 @@ public class Gendama_LocalQuizs extends Gendama {
 	 */
 	public Gendama_LocalQuizs() {
 		// 「CMくじ」
-				driver.get(GENDAMA_CM_URL);
+		driver.get(GENDAMA_CM_URL);
 	}
 
 	/**
@@ -62,48 +50,24 @@ public class Gendama_LocalQuizs extends Gendama {
 	 *
 	 */
 	public Integer execute() {
-		try{
-			// 「ザ・ご当地検定URL」取得する
-			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(4).getAttribute(A_HREF);
-			if (StringUtils.isNoneEmpty(election_url)) {
-				// 「ザ・ご当地検定」
-				driver.get(election_url);
-				// 「スタート」
-				click(getByClass(C_C_I));
-				// 3秒待ち
-				sleep(3000);
-				// 「スタート」
-				click(getByName(N_S_B));
-				// 当日の完了ステータスを判断
-				if(getSize(getById(I_W)) > 0){
-					// 「完了する」
-					click(getByClass(C_C_I));
-					// 「ザ・ご当地検定」終了する
-					driver.quit();
-					return point_count;
-				}
-				// 投票処理をする
-				start();
-				// 「次へ」
-				click(getByClass(C_C_I));
-				// 「次へ」
-				click(getByClass(C_C_I));
-				// 「次へ」
-				click(getByClass(C_C_I));
-				// 「完了する」
-				click(getByClass(C_C_I));
-				// 獲得ポイントカウント
-				point_count += 10;
-			}else{
-				System.out.println("=====ザ・ご当地検定URL取得失敗");
-			}
-			driver.quit();
-			return point_count;
-		}catch(Exception e){
-			driver.quit();
-			System.out.println("===ザ・ご当地検定失敗");
-			return point_count;
+		// 「ザ・ご当地検定URL」取得する
+		local_quizs_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_4)
+				.getAttribute(A_HREF);
+		if (StringUtils.isNoneEmpty(local_quizs_url)) {
+			// 「ザ・ご当地検定」
+			driver.get(local_quizs_url);
+
+			// 投票処理をする
+			start();
+
+			// 獲得ポイントカウント
+			point_count += 10;
+		} else {
+			System.out.println("【エラー】：ザ・ご当地検定URL取得失敗");
 		}
+		driver.quit();
+		return point_count;
+
 	}
 
 	/**
@@ -116,27 +80,9 @@ public class Gendama_LocalQuizs extends Gendama {
 	 */
 	public void start() {
 		try {
-			for(int i = 0; i < 12; i++){
-				// 「答え選択肢カウント」
-				int answer_count = getSize(getByClass(C_A_S));
-				// 「答え選択肢」クリック
-				clickByIndex(getByClass(C_A_S), int_random(answer_count));
-				// 1秒待ち
-				sleep(1000);
-				// 「答える」ボタン
-				click(getById(I_A_B));
-				// 1秒待ち
-				sleep(1000);
-				// 「次の問題へ」
-				click(getByClass(C_C_I));
-				// 1秒待ち
-				sleep(1000);
-			}
+			Local_Quizs.execute(driver);
 		} catch (Exception e) {
-			System.out.println("=====検定スタート失敗");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
+			System.out.println("【エラー】：ザ・ご当地検定失敗");
 		}
 	}
 

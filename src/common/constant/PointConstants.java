@@ -77,12 +77,34 @@ public class PointConstants {
 	public static final String MOPPY_LOGIN_PASSWORD = "20110119Jjz";
 	/** モッピー:ゲームコンテンツURL */
 	public static final String MOPPY_GAMECONTENTS_URL = "http://pc.moppy.jp/gamecontents/";
+	/** モッピー:ゲームコンテンツURL */
+	public static final String MOPPY_CM_URL = "http://pc.moppy.jp/forward/?t=12489";
 
 	//==================================================================================================================
-	// げん玉
+	// 共通
 	//==================================================================================================================
 	/** 共通：「診断」文字列 */
 	public static final String S_SINDAN = ".*診断.*";
 	/** 共通：「アンケート」文字列 */
 	public static final String S_ENQUETE = ".*アンケート.*";
+	/** 「0」 */
+	public static final int INT_0 = 0;
+	/** 「1」 */
+	public static final int INT_1 = 1;
+	/** 「2」 */
+	public static final int INT_2 = 2;
+	/** 「3」 */
+	public static final int INT_3 = 3;
+	/** 「4」 */
+	public static final int INT_4 = 4;
+	/** 「5」 */
+	public static final int INT_5 = 5;
+	/** 「6」 */
+	public static final int INT_6 = 6;
+	/** 「7」 */
+	public static final int INT_7 = 7;
+	/** 「8」 */
+	public static final int INT_8 = 8;
+	/** 「9」 */
+	public static final int INT_9 = 9;
 }

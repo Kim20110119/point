@@ -1,4 +1,4 @@
-package gendama.click;
+package gendama.home;
 
 import static common.constant.PointConstants.*;
 

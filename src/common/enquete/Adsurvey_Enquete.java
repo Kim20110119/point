@@ -2,6 +2,7 @@ package common.enquete;
 
 import static common.Common.*;
 import static common.constant.HtmlConstants.*;
+import static common.constant.PointConstants.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +16,7 @@ import org.openqa.selenium.support.ui.Select;
  * @author kimC
  *
  */
-public class Enquete {
+public class Adsurvey_Enquete {
 
 	/** 「btn」 */
 	private static final String C_BTN = "btn";
@@ -24,22 +25,20 @@ public class Enquete {
 
 	/**
 	 * =================================================================================================================
-	 * アンケート
+	 * Adsurveyアンケート
 	 * =================================================================================================================
 	 *
 	 * @param WebDriver driver
-	 * @param String url
+	 * @return execute_flag
 	 *
 	 * @author kimC
 	 *
 	 */
-	public static Boolean execute(WebDriver driver,String url) throws Exception{
-		// アンケート画面へ遷移する
-		driver.get(url);
+	public static Boolean execute(WebDriver driver) throws Exception{
 		// 0.5秒待ち
 		Thread.sleep(500);
 		// 「フレームURL」
-		String frame_url = driver.findElements(By.tagName(T_IFRAME)).get(0).getAttribute(A_SRC);
+		String frame_url = driver.findElements(By.tagName(T_IFRAME)).get(INT_0).getAttribute(A_SRC);
 		// 「フレーム」
 		driver.get(frame_url);
 		// 「次へ」ボタン
@@ -72,7 +71,7 @@ public class Enquete {
 		// 0.5秒待ち
 		Thread.sleep(500);
 		// 「アンケート質問」
-		for(int line = 1; line <= 20; line++){
+		for(int line = 1; line < 9; line++){
 			//「ラジオボタン」
 			int radio_count = driver.findElements(By.xpath("//input[@type='radio']")).size();
 			// 「チェックボックス」

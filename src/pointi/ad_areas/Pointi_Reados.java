@@ -6,7 +6,7 @@ import static common.constant.PointConstants.*;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
-import common.enquete.Enquete;
+import common.enquete.Adsurvey_Enquete;
 import pointi.Pointi;
 
 /**
@@ -83,8 +83,10 @@ public class Pointi_Reados extends Pointi {
 			// 「アンケートURL」
 			String enquete_url = driver.findElement(By.className(C_E_B)).findElements(By.tagName(T_A)).get(0)
 					.getAttribute(A_HREF);
+			// 「該当するAdsurveyアンケート」へ遷移する
+			driver.get(enquete_url);
 			// 「アンケート回答」
-			if (Enquete.execute(driver, enquete_url)) {
+			if (Adsurvey_Enquete.execute(driver)) {
 				point_count += 10;
 			}
 		} catch (Exception e) {

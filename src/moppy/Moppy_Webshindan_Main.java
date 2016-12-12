@@ -1,22 +1,21 @@
-package gendama;
+package moppy;
 
-import gendama.home.Gendama_Forest;
+import moppy.shindan.Moppy_Shindan;
 
 /**
  * =====================================================================================================================
- * げん玉：ポイントの森
+ * げん玉：WEB診断
  * =====================================================================================================================
  *
  * @author kimC
  *
  */
-public class ForestMain {
+public class Moppy_Webshindan_Main {
 
-	// ポイントの森メイン処理
 	public static void main(String[] args) {
-		Gendama_Forest forest = new Gendama_Forest();
-		forest.execute();
-		System.out.println("ポイントの森終了");
+		Moppy_Shindan moppy_Shindan = new Moppy_Shindan();
+		int reados_point = moppy_Shindan.execute();
+		System.out.println(reados_point);
 	}
 
 }

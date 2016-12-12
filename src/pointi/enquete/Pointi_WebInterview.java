@@ -5,7 +5,7 @@ import static common.constant.PointConstants.*;
 
 import org.openqa.selenium.By;
 
-import common.enquete.Enquete;
+import common.enquete.Adsurvey_Enquete;
 import pointi.Pointi;
 
 /**
@@ -74,7 +74,7 @@ public class Pointi_WebInterview extends Pointi {
             // WEBインタビューのURLへ遷移する
             driver.get(interview_url);
 			// 「アンケート回答」
-			if (Enquete.execute(driver, interview_url)) {
+			if (Adsurvey_Enquete.execute(driver)) {
 				point_count += 10;
 			}
 		} catch (Exception e) {
@@ -100,7 +100,7 @@ public class Pointi_WebInterview extends Pointi {
             // WEBインタビューのURLへ遷移する
             driver.get(interview_url);
 			// 「アンケート回答」
-			if (Enquete.execute(driver, interview_url)) {
+			if (Adsurvey_Enquete.execute(driver)) {
 				point_count += 10;
 			}
 		} catch (Exception e) {

@@ -35,6 +35,8 @@ public class HtmlConstants {
 	public static final String T_BUTTON = "button";
 	/** 「img」 */
 	public static final String T_IMG = "img";
+	/** 「select」 */
+	public static final String T_SELECT = "select";
 
 
 	//==================================================================================================================
