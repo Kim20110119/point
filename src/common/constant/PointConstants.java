@@ -30,6 +30,11 @@ public class PointConstants {
 	/** げん玉:WEB診断URL */
 	public static final String GENDAMA_WEB_SHINDAN_URL = "http://shindan-apps.net/gendama?uid=6187765";
 
+	/** げん玉(携帯):CMくじURL */
+	public static final String SP_GENDAMA_CM_URL = "http://www.gendama.jp/cl/?id=134510&rt=s&u=6187765";
+	/** げん玉(携帯):森のポイントURL */
+	public static final String SP_GENDAMA_WEB_SHINDAN_URL = "http://www.gendama.jp/sp/more_point";
+
 	/** げん玉:ログインメールアドレス */
 	public static final String GENDAMA_LOGIN_MAIL = "kimyea002@hotmail.com";
 	/** げん玉:ログインパスワード */
