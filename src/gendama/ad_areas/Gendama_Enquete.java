@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
 import common.enquete.Manga_enquete;
-import gendama.Gendama;
+import gendama.Pc_Gendama;
 
 /**
  * =====================================================================================================================
@@ -17,11 +17,13 @@ import gendama.Gendama;
  * @author kimC
  *
  */
-public class Gendama_Enquete extends Gendama {
+public class Gendama_Enquete extends Pc_Gendama {
 	/** 「daily-points」 */
 	private static final String C_D_P = "daily-points";
-	/** 「漫画アンケートURL」 */
+	/** 「漫画アンケートリンク」 */
 	String enquete_link;
+	/** 「漫画アンケートURL」 */
+	String enquete_url;
 	/** 「獲得ポイント」 */
 	int point_count = 0;
 	/** 「再スタートフラグ」 */
@@ -57,7 +59,7 @@ public class Gendama_Enquete extends Gendama {
 				driver.get(enquete_link);
 				int enquete_count = driver.findElements(By.partialLinkText("回答する")).size();
 				for(int i = 0; i < enquete_count; i++){
-					String enquete_url = driver.findElements(By.partialLinkText("回答する")).get(0).getAttribute(A_HREF);
+					enquete_url = driver.findElements(By.partialLinkText("回答する")).get(0).getAttribute(A_HREF);
 					driver.get(enquete_url);
 					start();
 					// 「漫画アンケート画面」
@@ -66,13 +68,13 @@ public class Gendama_Enquete extends Gendama {
 				// 獲得ポイントカウント
 				point_count += 10;
 			} else {
-				System.out.println("=====漫画アンケートURL取得失敗");
+				System.out.println("【エラー】：漫画アンケートURL取得失敗");
 			}
 			driver.quit();
 			return point_count;
 		} catch (Exception e) {
 			driver.quit();
-			System.out.println("===漫画アンケート失敗");
+			System.out.println("【エラー】：漫画アンケート失敗");
 			return point_count;
 		}
 	}
@@ -89,7 +91,7 @@ public class Gendama_Enquete extends Gendama {
 		try {
 			Manga_enquete.execute(driver);
 		} catch (Exception e) {
-			System.out.println("=====【エラー】：漫画アンケート失敗！");
+			System.out.println("【エラー】：漫画アンケート失敗！");
 			point_count -= 10;
 			restart();
 		}
@@ -105,9 +107,10 @@ public class Gendama_Enquete extends Gendama {
 	 */
 	public void restart() {
 		try {
+			driver.get(enquete_url);
 			Manga_enquete.execute(driver);
 		} catch (Exception e) {
-			System.out.println("=====【エラー】：漫画アンケート再スタート失敗！");
+			System.out.println("【エラー】：漫画アンケート再スタート失敗！");
 		}
 	}
 

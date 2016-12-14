@@ -6,7 +6,7 @@ import static common.constant.PointConstants.*;
 import org.openqa.selenium.By;
 
 import common.shindan.WebShindan;
-import gendama.Gendama;
+import gendama.Pc_Gendama;
 
 /**
  * =====================================================================================================================
@@ -16,7 +16,7 @@ import gendama.Gendama;
  * @author kimC
  *
  */
-public class Gendama_Shindan  extends Gendama {
+public class Gendama_Shindan  extends Pc_Gendama {
 	/** 「クマクマ総選挙URL」 */
 	String election_url;
 	/** 「獲得ポイント」 */

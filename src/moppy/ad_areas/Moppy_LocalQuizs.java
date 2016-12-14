@@ -7,7 +7,7 @@ import static common.constant.PointConstants.*;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
-import gendama.Gendama;
+import gendama.Pc_Gendama;
 
 /**
  * =====================================================================================================================
@@ -17,7 +17,7 @@ import gendama.Gendama;
  * @author kimC
  *
  */
-public class Moppy_LocalQuizs extends Gendama {
+public class Moppy_LocalQuizs extends Pc_Gendama {
 
 	/** 「daily-points」 */
 	private static final String C_D_P = "daily-points";

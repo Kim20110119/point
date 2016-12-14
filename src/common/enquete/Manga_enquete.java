@@ -32,7 +32,7 @@ public class Manga_enquete {
 		String originalHandle = driver.getWindowHandle();
 
 		// 0.5秒待ち
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		// 「進む」
 		driver.findElement(By.xpath("//input[@alt='進む']")).click();
 		// 「タブ閉じる」
@@ -43,18 +43,12 @@ public class Manga_enquete {
 		driver.findElement(By.xpath("//input[@alt='漫画を選ぶ']")).click();
 		// 「タブ閉じる」
 		tab_close(driver, originalHandle, By.xpath("//input[@alt='漫画を選ぶ']"));
-		for (int i = 0; i < 5; i++) {
-			// 1秒待ち
-			Thread.sleep(1500);
-			// 広告を閉じる
-			ad_close(driver);
-			// 「漫画を読む」
-			driver.findElement(By.xpath("//input[@alt='進む']")).click();
+		for (int i = 0; i < 6; i++) {
+			click_next(driver);
 			// 1秒待ち
 			Thread.sleep(500);
 			// 「タブ閉じる」
 			tab_close(driver, originalHandle, By.xpath("//input[@alt='進む']"));
-
 		}
 		// 1秒待ち
 		Thread.sleep(1500);
@@ -64,57 +58,39 @@ public class Manga_enquete {
 		driver.findElement(By.xpath("//input[@alt='アンケートに進む']")).click();
 		// 「タブ閉じる」
 		tab_close(driver, originalHandle, By.xpath("//input[@alt='アンケートに進む']"));
-		// 性別
-		driver.findElements(By.name("q1")).get(0).click();
-		// 1秒待ち
-		Thread.sleep(1500);
-		// 「次へ」
-		driver.findElement(By.xpath("//input[@value='次へ']")).click();
-		// 「タブ閉じる」
-		tab_close(driver, originalHandle, By.xpath("//input[@value='次へ']"));
-		// 年齢
-		driver.findElements(By.name("q1")).get(2).click();
-		// 1秒待ち
-		Thread.sleep(1500);
-		// 「次へ」
-		driver.findElement(By.xpath("//input[@value='次へ']")).click();
-		// 「タブ閉じる」
-		tab_close(driver, originalHandle, By.xpath("//input[@value='次へ']"));
-		// 1秒待ち
-		Thread.sleep(1500);
-		String text03 = driver.findElement(By.className("text03")).getText();
-		if (str_matche(text03, "お住まい")) {
-			// お住まい
-			Select element = new Select(driver.findElement(By.name("q1")));
-			element.selectByIndex(27);
-			// 1秒待ち
-			Thread.sleep(1500);
-			// 「次へ」
-			driver.findElement(By.xpath("//input[@value='次へ']")).click();
-		} else if (str_matche(text03, "職業")) {
-			// 職業
-			driver.findElements(By.name("q1")).get(2).click();
-			// 1秒待ち
-			Thread.sleep(1500);
-			// 「次へ」
-			driver.findElement(By.xpath("//input[@value='次へ']")).click();
-		}
-		// 「タブ閉じる」
-		tab_close(driver, originalHandle, By.xpath("//input[@value='次へ']"));
 		// 問題回答
-		for (int i = 0; i < 8; i++) {
-			int q_count = driver.findElements(By.name("q1")).size();
-			if (q_count < 2) {
-				// セレクト判断
-				int select_count = driver.findElements(By.tagName(T_SELECT)).size();
-				if(select_count > 0){
-					Select element = new Select(driver.findElement(By.name("q1")));
-					element.selectByIndex(2);
-				}else{
-					break;
+		for (int i = 0; i < 10; i++) {
+			// 0.5秒待ち
+			Thread.sleep(500);
+			// 問題内容
+			String text03 = get_content(driver);
+			if (str_matche(text03, "年齢をお知らせ")) {
+				// 年齢
+				driver.findElements(By.name("q1")).get(2).click();
+			} else if (str_matche(text03, "性別をお知らせ")) {
+				// 性別
+				driver.findElements(By.name("q1")).get(0).click();
+			} else if (str_matche(text03, "職業をお知らせ")) {
+				// 職業
+				driver.findElements(By.name("q1")).get(2).click();
+			} else if (str_matche(text03, "お住まいをお知らせ")) {
+				// お住まい
+				Select element = new Select(driver.findElement(By.name("q1")));
+				element.selectByIndex(26);
+			} else {
+				int q_count = driver.findElements(By.name("q1")).size();
+				if (q_count < 2) {
+					// セレクト判断
+					int select_count = driver.findElements(By.tagName(T_SELECT)).size();
+					if (select_count > 0) {
+						Select element = new Select(driver.findElement(By.name("q1")));
+						element.selectByIndex(2);
+					} else {
+						break;
+					}
 				}
+				driver.findElements(By.name("q1")).get(int_random(q_count)).click();
 			}
-			driver.findElements(By.name("q1")).get(int_random(q_count)).click();
 			// 1秒待ち
 			Thread.sleep(1500);
 			// 「次へ」
@@ -122,6 +98,8 @@ public class Manga_enquete {
 			// 「タブ閉じる」
 			tab_close(driver, originalHandle, By.xpath("//input[@value='次へ']"));
 		}
+		// 1秒待ち
+		Thread.sleep(1500);
 		// 広告を閉じる
 		ad_close(driver);
 		// 「クリックしてポイントゲット」
@@ -181,11 +159,55 @@ public class Manga_enquete {
 				}
 			}
 			driver.switchTo().window(originalHandle);
-			if(close_flag){
+			if (close_flag) {
 				driver.findElement(by).click();
 			}
 		} catch (Exception e) {
 		}
 
+	}
+
+	/**
+	 * =================================================================================================================
+	 * アンケート内容を取得する
+	 * =================================================================================================================
+	 *
+	 * @param WebDriver
+	 *            driver
+	 *
+	 * @author kimC
+	 *
+	 */
+	public static String get_content(WebDriver driver) {
+		String text03 = "";
+		try {
+			text03 = driver.findElement(By.className("text03")).getText();
+			return text03;
+		} catch (Exception e) {
+		}
+		return text03;
+	}
+
+	/**
+	 * =================================================================================================================
+	 * 「進む」クリック
+	 * =================================================================================================================
+	 *
+	 * @param WebDriver
+	 *            driver
+	 *
+	 * @author kimC
+	 *
+	 */
+	public static void click_next(WebDriver driver) {
+		try {
+			// 1秒待ち
+			Thread.sleep(1500);
+			// 広告を閉じる
+			ad_close(driver);
+			// 「漫画を読む」
+			driver.findElement(By.xpath("//input[@alt='進む']")).click();
+		} catch (Exception e) {
+		}
 	}
 }

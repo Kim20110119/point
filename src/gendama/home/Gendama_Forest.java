@@ -2,7 +2,7 @@ package gendama.home;
 
 import static common.constant.PointConstants.*;
 
-import gendama.Gendama;
+import gendama.Pc_Gendama;
 
 
 /**
@@ -13,7 +13,7 @@ import gendama.Gendama;
  * @author kimC
  *
  */
-public class Gendama_Forest extends Gendama  {
+public class Gendama_Forest extends Pc_Gendama  {
 
 	public Gendama_Forest() {
 		// げん玉：ポイントの森

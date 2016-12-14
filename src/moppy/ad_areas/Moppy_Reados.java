@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
 import common.enquete.Adsurvey_Enquete;
-import gendama.Gendama;
+import gendama.Pc_Gendama;
 
 /**
  * =====================================================================================================================
@@ -17,7 +17,7 @@ import gendama.Gendama;
  * @author kimC
  *
  */
-public class Moppy_Reados extends Gendama {
+public class Moppy_Reados extends Pc_Gendama {
 
 	/** 「daily-points」 */
 	private static final String C_D_P = "daily-points";

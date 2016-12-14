@@ -36,10 +36,12 @@ public class Sp_WebShindan {
 	public static Boolean execute(WebDriver driver) throws Exception {
 		// 応募済み判断
 		String str_end = driver.findElement(By.tagName("h3")).getText();
-		if(str_matche(str_end, "サービスは応募済み")){
+		if (str_matche(str_end, "サービスは応募済み")) {
 			System.out.println("このサービスは応募済みのため、ポイントは付与されません");
 			return Boolean.TRUE;
 		}
+		// スクロール
+		scroll(driver);
 		// 「次へ」
 		driver.findElement(By.className(C_SUBMINT)).click();
 		// 2秒待ち
@@ -98,8 +100,8 @@ public class Sp_WebShindan {
 	 * @author kimC
 	 *
 	 */
-	public static void scroll(WebDriver driver){
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+	public static void scroll(WebDriver driver) {
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("scroll(0, 250);");
 	}
 

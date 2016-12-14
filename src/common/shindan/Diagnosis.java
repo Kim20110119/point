@@ -21,14 +21,11 @@ public class Diagnosis {
 	 * =================================================================================================================
 	 *
 	 * @param WebDriver driver
-	 * @param String url
 	 *
 	 * @author kimC
 	 *
 	 */
-	public static Boolean execute(WebDriver driver,String url) throws Exception{
-        // おもしろ診断
-        driver.get(url);
+	public static Boolean execute(WebDriver driver) throws Exception{
         // 0.5秒待ち
         Thread.sleep(500);
         driver.findElement(By.xpath("//input[@value='さっそく診断を始める']")).click();

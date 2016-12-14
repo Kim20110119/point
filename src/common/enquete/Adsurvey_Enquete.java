@@ -28,13 +28,14 @@ public class Adsurvey_Enquete {
 	 * Adsurveyアンケート
 	 * =================================================================================================================
 	 *
-	 * @param WebDriver driver
+	 * @param WebDriver
+	 *            driver
 	 * @return execute_flag
 	 *
 	 * @author kimC
 	 *
 	 */
-	public static Boolean execute(WebDriver driver) throws Exception{
+	public static Boolean execute(WebDriver driver) throws Exception {
 		// 0.5秒待ち
 		Thread.sleep(500);
 		// 「フレームURL」
@@ -71,19 +72,19 @@ public class Adsurvey_Enquete {
 		// 0.5秒待ち
 		Thread.sleep(500);
 		// 「アンケート質問」
-		for(int line = 1; line < 9; line++){
-			//「ラジオボタン」
+		for (int line = 1; line < 9; line++) {
+			// 「ラジオボタン」
 			int radio_count = driver.findElements(By.xpath("//input[@type='radio']")).size();
 			// 「チェックボックス」
 			int checkbox_count = driver.findElements(By.xpath("//input[@type='checkbox']")).size();
-			if(radio_count > 0){
+			if (radio_count > 0) {
 				driver.findElements(By.xpath("//input[@type='radio']")).get(int_random(radio_count)).click();
 				// 「次へ」ボタン
 				driver.findElement(By.className(C_BTN)).click();
 				// 0.5秒待ち
 				Thread.sleep(1000);
 				continue;
-			}else if(checkbox_count > 0){
+			} else if (checkbox_count > 0) {
 				driver.findElements(By.xpath("//input[@type='checkbox']")).get(int_random(checkbox_count)).click();
 				driver.findElements(By.xpath("//input[@type='checkbox']")).get(int_random(checkbox_count)).click();
 				driver.findElements(By.xpath("//input[@type='checkbox']")).get(int_random(checkbox_count)).click();
@@ -92,7 +93,7 @@ public class Adsurvey_Enquete {
 				// 0.5秒待ち
 				Thread.sleep(1000);
 				continue;
-			}else{
+			} else {
 				// 「次へ」ボタン
 				driver.findElement(By.className(C_BTN_R)).click();
 				break;
@@ -101,6 +102,59 @@ public class Adsurvey_Enquete {
 		}
 
 		return Boolean.TRUE;
+	}
+
+	/**
+	 * =================================================================================================================
+	 * Adsurveyアンケート再スタート
+	 * =================================================================================================================
+	 *
+	 * @param WebDriver
+	 *            driver
+	 * @return execute_flag
+	 *
+	 * @author kimC
+	 *
+	 */
+	public static Boolean execute_restart(WebDriver driver){
+		try {
+			// 0.5秒待ち
+			Thread.sleep(500);
+			// 「アンケート質問」
+			for (int line = 1; line < 9; line++) {
+				// 「ラジオボタン」
+				int radio_count = driver.findElements(By.xpath("//input[@type='radio']")).size();
+				// 「チェックボックス」
+				int checkbox_count = driver.findElements(By.xpath("//input[@type='checkbox']")).size();
+				if (radio_count > 0) {
+					driver.findElements(By.xpath("//input[@type='radio']")).get(int_random(radio_count)).click();
+					// 「次へ」ボタン
+					driver.findElement(By.className(C_BTN)).click();
+					// 0.5秒待ち
+					Thread.sleep(1000);
+					continue;
+				} else if (checkbox_count > 0) {
+					driver.findElements(By.xpath("//input[@type='checkbox']")).get(int_random(checkbox_count)).click();
+					driver.findElements(By.xpath("//input[@type='checkbox']")).get(int_random(checkbox_count)).click();
+					driver.findElements(By.xpath("//input[@type='checkbox']")).get(int_random(checkbox_count)).click();
+					// 「次へ」ボタン
+					driver.findElement(By.className(C_BTN)).click();
+					// 0.5秒待ち
+					Thread.sleep(1000);
+					continue;
+				} else {
+					// 「次へ」ボタン
+					driver.findElement(By.className(C_BTN_R)).click();
+					break;
+				}
+
+			}
+
+			return Boolean.TRUE;
+		} catch (Exception e) {
+			return Boolean.FALSE;
+		}
+
 	}
 
 }

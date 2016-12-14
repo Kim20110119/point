@@ -69,24 +69,30 @@ public class Sp_Gendama_Election extends Sp_Gendama {
 				for (int i = 0; i < 500; i++) {
 					start();
 					if (restart_flag) {
+						// 「クマクマ総選挙画面」
+						driver.get(election_url);
+						// 「アンケート開始」
+						click(getByClass("start__button"));
 						// アンケート件数
 						enquete_count = driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).size();
 						if (enquete_count < 1) {
 							driver.quit();
 							return point_count;
 						}
+						// 「アンケート画面」
+						driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0).click();
 					}
 					// 獲得ポイントカウント
 					point_count += 1;
 				}
 			} else {
-				System.out.println("=====クマクマ総選挙URL取得失敗");
+				System.out.println("【エラー】：クマクマ総選挙URL取得失敗");
 			}
 			driver.quit();
 			return point_count;
 		} catch (Exception e) {
 			driver.quit();
-			System.out.println("===クマクマ総選挙失敗");
+			System.out.println("【エラー】：クマクマ総選挙失敗");
 			return point_count;
 		}
 	}
@@ -116,13 +122,10 @@ public class Sp_Gendama_Election extends Sp_Gendama {
 			// 1秒待ち
 			sleep(1000);
 		} catch (Exception e) {
-			System.out.println("=====選挙スタート失敗");
-			System.out.println("=====クマクマ総選挙遷移再スタート");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
+			System.out.println("【エラー】：選挙スタート失敗");
+			System.out.println("【エラー】：クマクマ総選挙遷移再スタート");
 			point_count -= 1;
-			restart();
+			restart_flag = Boolean.TRUE;
 		}
 	}
 
@@ -136,14 +139,7 @@ public class Sp_Gendama_Election extends Sp_Gendama {
 	 */
 	public void restart() {
 		try {
-			// 「クマクマ総選挙画面」
-			driver.get(election_url);
-			// 「アンケート開始」
-			click(getByClass("start__button"));
-			// アンケート件数
-			enquete_count = driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).size();
-			// 「アンケート画面」
-			driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0).click();
+
 		} catch (Exception e) {
 			System.out.println("=====選挙再スタート失敗");
 			System.out.println("...");
