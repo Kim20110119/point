@@ -37,7 +37,7 @@ public class Point_Land_Election extends Pc_Point_Land {
 		driver.get(POINT_LAND_CM_URL);
 		driver.findElement(By.name("frmCM")).submit();
 		String originalHandel = driver.getWindowHandle();
-		String cm_url = super.getUrlByTab(driver,originalHandel);
+		String cm_url = super.getUrlByTab(driver, originalHandel);
 		driver.get(cm_url);
 	}
 
@@ -78,13 +78,15 @@ public class Point_Land_Election extends Pc_Point_Land {
 						// 「アンケート開始」
 						click(getByClass("start__button"));
 						// アンケート件数
-						enquete_count = driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).size();
+						enquete_count = driver.findElement(By.className("select__list")).findElements(By.tagName(T_A))
+								.size();
 						if (enquete_count < 1) {
 							driver.quit();
 							return point_count;
-						}else{
+						} else {
 							// 「アンケート画面」
-							driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0).click();
+							driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0)
+									.click();
 						}
 					}
 					// 獲得ポイントカウント
@@ -126,6 +128,8 @@ public class Point_Land_Election extends Pc_Point_Land {
 			driver.findElement(By.className("button__box")).findElements(By.tagName(T_A)).get(0).click();
 			// 1秒待ち
 			sleep(1000);
+			// 「再スタートフラグ」
+			restart_flag = Boolean.FALSE;
 		} catch (Exception e) {
 			System.out.println("【エラー】：選挙スタート失敗");
 			System.out.println("【エラー】：クマクマ総選挙遷移再スタート");

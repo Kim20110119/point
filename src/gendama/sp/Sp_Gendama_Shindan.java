@@ -25,9 +25,9 @@ public class Sp_Gendama_Shindan extends Sp_Gendama {
 	/** 「再スタートフラグ」 */
 	Boolean restart_flag = Boolean.FALSE;
 	/** 「WEB診断開始番号」 */
-	int start = 312991;
+	int start = 311055;
 	/** 「WEB診断終了番号」 */
-	int end = 313002;
+	int end = 311162;
 
 	/**
 	 * コンストラクタ

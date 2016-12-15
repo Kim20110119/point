@@ -107,10 +107,24 @@ public class PointConstants {
 	public static final String POINT_LAND_LOGIN_URL = "https://www.point-land.net/loginw.asp";
 	/** ポイントランド:CMくじURL */
 	public static final String POINT_LAND_CM_URL = "http://www.point-land.net/wcmpoint.asp";
+	/** ポイントランド:アンケート&診断URL */
+	public static final String POINT_LAND_ENQUETE_SHINDAN_URL = "http://www.point-land.net/wenqr.asp";
+
 	/** ポイントランド:ログインメールアドレス */
 	public static final String POINT_LAND_LOGIN_MAIL = "kim20110119@hotmail.com";
 	/** ポイントランド:ログインパスワード */
 	public static final String POINT_LAND_LOGIN_PASSWORD = "20110119Jjz";
+
+	// ==================================================================================================================
+	// i2i
+	// ==================================================================================================================
+	/** I2I:ログインURL */
+	public static final String I2I_LOGIN_URL = "https://id.i2i.jp/usr/login.php?usr=&goto=https%3A%2F%2Fpoint.i2i.jp%2Fservice%2Flogin%3Furl%3D";
+
+	/** I2I:ログインメールアドレス */
+	public static final String I2I_LOGIN_MAIL = "kimyea.008@gmail.com";
+	/** I2I:ログインパスワード */
+	public static final String I2I_LOGIN_PASSWORD = "20110119Jjz";
 
 	// ==================================================================================================================
 	// 共通

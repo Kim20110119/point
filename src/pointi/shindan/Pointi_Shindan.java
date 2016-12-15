@@ -24,9 +24,9 @@ public class Pointi_Shindan  extends Pointi {
 	/** 「再スタートフラグ」 */
 	Boolean restart_flag = Boolean.FALSE;
 	/** 「WEB診断開始番号」 */
-	int start = 4;
+	int start = 0;
 	/** 「WEB診断終了番号」 */
-	int end = 5;
+	int end = 1;
 
 	/**
 	 * コンストラクタ

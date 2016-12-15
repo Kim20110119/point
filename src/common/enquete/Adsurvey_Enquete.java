@@ -94,8 +94,19 @@ public class Adsurvey_Enquete {
 				Thread.sleep(1000);
 				continue;
 			} else {
-				// 「次へ」ボタン
-				driver.findElement(By.className(C_BTN_R)).click();
+				int select_count = driver.findElement(By.className("answer")).findElements(By.tagName("select")).size();
+				if(select_count > 0){
+					// 「セレクト」
+					Select anser_select = new Select(driver.findElement(By.className("answer")).findElements(By.tagName("select")).get(0));
+					anser_select.selectByIndex(2);
+					// 「次へ」ボタン
+					driver.findElement(By.className(C_BTN)).click();
+					// 0.5秒待ち
+					Thread.sleep(1000);
+				}else{
+					// 「次へ」ボタン
+					driver.findElement(By.className(C_BTN_R)).click();
+				}
 				break;
 			}
 
@@ -143,8 +154,19 @@ public class Adsurvey_Enquete {
 					Thread.sleep(1000);
 					continue;
 				} else {
-					// 「次へ」ボタン
-					driver.findElement(By.className(C_BTN_R)).click();
+					int select_count = driver.findElement(By.className("answer")).findElements(By.tagName("select")).size();
+					if(select_count > 0){
+						// 「セレクト」
+						Select anser_select = new Select(driver.findElement(By.className("answer")).findElements(By.tagName("select")).get(0));
+						anser_select.selectByIndex(2);
+						// 「次へ」ボタン
+						driver.findElement(By.className(C_BTN)).click();
+						// 0.5秒待ち
+						Thread.sleep(1000);
+					}else{
+						// 「次へ」ボタン
+						driver.findElement(By.className(C_BTN_R)).click();
+					}
 					break;
 				}
 

@@ -10,7 +10,7 @@ public class Moppy_AdClick {
 		try{
 			System.setProperty("webdriver.chrome.driver","lib/chromedriver.exe");
 	        ChromeOptions option = new ChromeOptions();
-	        option.addArguments("--proxy-server=http://193.107.192.69:8080");
+	        option.addArguments("--proxy-server=http://124.155.112.85:80");
 	        option.addArguments("--proxy-bypass-list=localhost");
 	        WebDriver driver = new ChromeDriver(option);
 	        driver.get("http://moppy.jp/top.php?xGVJe1dd");
