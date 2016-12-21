@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
 import common.enquete.Adsurvey_Enquete;
-import pointi.Pointi;
+import pointi.Pc_Pointi;
 
 /**
  * =====================================================================================================================
@@ -17,7 +17,7 @@ import pointi.Pointi;
  * @author kimC
  *
  */
-public class Pointi_Reados extends Pointi {
+public class Pointi_Reados extends Pc_Pointi {
 
 	/** 「daily-points」 */
 	private static final String C_D_P = "daily-points";
@@ -64,7 +64,7 @@ public class Pointi_Reados extends Pointi {
 				driver.get(reados_url);
 			}
 		}else{
-			System.out.println("=====クマクマ調査団URL取得失敗");
+			System.out.println("【エラー】：クマクマ調査団URL取得失敗");
 		}
 		driver.quit();
 		return point_count;
@@ -90,11 +90,8 @@ public class Pointi_Reados extends Pointi {
 				point_count += 10;
 			}
 		} catch (Exception e) {
-			System.out.println("=====調査タート失敗");
-			System.out.println("=====クマクマ調査団遷移再スタート");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
+			System.out.println("【エラー】：調査タート失敗");
+			System.out.println("【エラー】：クマクマ調査団遷移再スタート");
 		}
 	}
 

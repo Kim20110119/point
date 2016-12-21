@@ -107,6 +107,7 @@ public class Sp_Gendama_Election extends Sp_Gendama {
 	 */
 	public void start() {
 		try {
+			restart_flag = Boolean.FALSE;
 			// 「投票選択肢カウント」
 			int choice_count = getSize(getByXpath("label", "class", "radio"));
 			// 「投票選択肢」クリック

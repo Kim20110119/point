@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
 import common.enquete.Manga_enquete;
-import moppy.Moppy;
+import moppy.Pc_Moppy;
 
 /**
  * =====================================================================================================================
@@ -17,7 +17,7 @@ import moppy.Moppy;
  * @author kimC
  *
  */
-public class Moppy_Enquete extends Moppy {
+public class Moppy_Enquete extends Pc_Moppy {
 	/** 「daily-points」 */
 	private static final String C_D_P = "daily-points";
 	/** 「漫画アンケートURL」 */

@@ -7,7 +7,7 @@ import static common.constant.PointConstants.*;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
-import pointi.Pointi;
+import pointi.Pc_Pointi;
 
 /**
  * =====================================================================================================================
@@ -17,7 +17,7 @@ import pointi.Pointi;
  * @author kimC
  *
  */
-public class Pointi_Election extends Pointi {
+public class Pointi_Election extends Pc_Pointi {
 	/** 「daily-points」 */
 	private static final String C_D_P = "daily-points";
 	/** 「クマクマ総選挙URL」 */
@@ -79,13 +79,13 @@ public class Pointi_Election extends Pointi {
 					point_count += 1;
 				}
 			}else{
-				System.out.println("=====クマクマ調査団URL取得失敗");
+				System.out.println("【エラー】：クマクマ調査団URL取得失敗");
 			}
 			driver.quit();
 			return point_count;
 		}catch(Exception e){
 			driver.quit();
-			System.out.println("===クマクマ総選挙失敗");
+			System.out.println("【エラー】：クマクマ総選挙失敗");
 			return point_count;
 		}
 	}
@@ -115,11 +115,8 @@ public class Pointi_Election extends Pointi {
 			// 1秒待ち
 			sleep(1000);
 		} catch (Exception e) {
-			System.out.println("=====投票スタート失敗");
-			System.out.println("=====クマクマ調査団遷移再スタート");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
+			System.out.println("【エラー】：投票スタート失敗");
+			System.out.println("【エラー】：クマクマ調査団遷移再スタート");
 			point_count -= 1;
 			restart();
 		}
@@ -144,10 +141,7 @@ public class Pointi_Election extends Pointi {
 			// 「投票画面」
 			driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0).click();
 		} catch (Exception e) {
-			System.out.println("=====投票再スタート失敗");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
+			System.out.println("【エラー】：投票再スタート失敗");
 		}
 	}
 

@@ -1,6 +1,6 @@
 package gendama;
 
-import gendama.home.Gendama_Forest;
+import gendama.sp.Sp_Gendama_Forest;
 
 /**
  * =====================================================================================================================
@@ -14,9 +14,9 @@ public class Sp_Gendama_ForestMain {
 
 	// ポイントの森メイン処理
 	public static void main(String[] args) {
-		Gendama_Forest forest = new Gendama_Forest();
+		Sp_Gendama_Forest forest = new Sp_Gendama_Forest();
 		forest.execute();
-		System.out.println("ポイントの森終了");
+		System.out.println("【携帯】：ポイントの森終了");
 	}
 
 }

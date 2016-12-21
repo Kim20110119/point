@@ -6,7 +6,7 @@ import static common.constant.PointConstants.*;
 import org.openqa.selenium.By;
 
 import common.shindan.WebShindan;
-import pointi.Pointi;
+import pointi.Pc_Pointi;
 
 /**
  * =====================================================================================================================
@@ -16,7 +16,7 @@ import pointi.Pointi;
  * @author kimC
  *
  */
-public class Pointi_Shindan  extends Pointi {
+public class Pointi_Shindan  extends Pc_Pointi {
 	/** 「クマクマ総選挙URL」 */
 	String election_url;
 	/** 「獲得ポイント」 */
@@ -26,7 +26,7 @@ public class Pointi_Shindan  extends Pointi {
 	/** 「WEB診断開始番号」 */
 	int start = 0;
 	/** 「WEB診断終了番号」 */
-	int end = 1;
+	int end = 5;
 
 	/**
 	 * コンストラクタ

@@ -39,6 +39,10 @@ public class HtmlConstants {
 	public static final String T_IMG = "img";
 	/** 「select」 */
 	public static final String T_SELECT = "select";
+	/** 「input」 */
+	public static final String T_INPUT = "input";
+	/** 「td」 */
+	public static final String T_TD = "td";
 
 
 	//==================================================================================================================
@@ -52,6 +56,10 @@ public class HtmlConstants {
 	public static final String A_TARGET = "target";
 	/** 「type」 */
 	public static final String A_TYPE = "type";
+	/** 「value」 */
+	public static final String A_VALUE = "value";
+	/** 「class」 */
+	public static final String A_CLASS = "class";
 
 
 	//==================================================================================================================

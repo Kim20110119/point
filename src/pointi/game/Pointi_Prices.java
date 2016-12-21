@@ -6,7 +6,7 @@ import static common.constant.PointConstants.*;
 
 import org.openqa.selenium.By;
 
-import pointi.Pointi;
+import pointi.Pc_Pointi;
 
 /**
  * =====================================================================================================================
@@ -16,7 +16,7 @@ import pointi.Pointi;
  * @author kimC
  *
  */
-public class Pointi_Prices extends Pointi {
+public class Pointi_Prices extends Pc_Pointi {
 	/** 「btn-area」 */
 	private static final String C_B_A = "btn-area";
 	/** 「クマクマ総選挙URL」 */

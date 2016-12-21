@@ -129,6 +129,8 @@ public class Adsurvey_Enquete {
 	 */
 	public static Boolean execute_restart(WebDriver driver){
 		try {
+			// 「次へ」ボタン
+			driver.findElement(By.className("btn_regular")).click();
 			// 0.5秒待ち
 			Thread.sleep(500);
 			// 「アンケート質問」

@@ -18,5 +18,4 @@ public class Pc_Gendama_ForestMain {
 		forest.execute();
 		System.out.println("ポイントの森終了");
 	}
-
 }

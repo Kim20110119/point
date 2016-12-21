@@ -7,7 +7,7 @@ import static common.constant.PointConstants.*;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
-import pointi.Pointi;
+import pointi.Pc_Pointi;
 
 /**
  * =====================================================================================================================
@@ -17,7 +17,7 @@ import pointi.Pointi;
  * @author kimC
  *
  */
-public class Pointi_LocalQuizs extends Pointi {
+public class Pointi_LocalQuizs extends Pc_Pointi {
 
 	/** 「daily-points」 */
 	private static final String C_D_P = "daily-points";

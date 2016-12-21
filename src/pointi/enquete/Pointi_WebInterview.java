@@ -6,14 +6,17 @@ import static common.constant.PointConstants.*;
 import org.openqa.selenium.By;
 
 import common.enquete.Adsurvey_Enquete;
-import pointi.Pointi;
+import pointi.Pc_Pointi;
 
 /**
+ * =====================================================================================================================
+ * ポイントインカム：Webインタビュー
+ * =====================================================================================================================
  *
- * ポイントインカム：WEBインタビュー
+ * @author kimC
  *
  */
-public class Pointi_WebInterview extends Pointi {
+public class Pointi_WebInterview extends Pc_Pointi {
 
 	/** 「colm」 */
 	private static final String C_C= "colm";
@@ -78,11 +81,7 @@ public class Pointi_WebInterview extends Pointi {
 				point_count += 10;
 			}
 		} catch (Exception e) {
-			System.out.println("=====WEBインタビュー失敗");
-			System.out.println("=====WEBインタビュー再スタート");
-			System.out.println(".");
-			System.out.println(".");
-			System.out.println(".");
+			System.out.println("【エラー】：WEBインタビュー失敗");
 			restart();
 		}
 	}
@@ -100,7 +99,7 @@ public class Pointi_WebInterview extends Pointi {
             // WEBインタビューのURLへ遷移する
             driver.get(interview_url);
 			// 「アンケート回答」
-			if (Adsurvey_Enquete.execute(driver)) {
+			if (Adsurvey_Enquete.execute_restart(driver)) {
 				point_count += 10;
 			}
 		} catch (Exception e) {

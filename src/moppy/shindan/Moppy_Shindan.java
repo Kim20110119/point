@@ -6,7 +6,7 @@ import static common.constant.PointConstants.*;
 import org.openqa.selenium.By;
 
 import common.shindan.WebShindan;
-import moppy.Moppy;
+import moppy.Pc_Moppy;
 
 /**
  * =====================================================================================================================
@@ -16,7 +16,7 @@ import moppy.Moppy;
  * @author kimC
  *
  */
-public class Moppy_Shindan  extends Moppy {
+public class Moppy_Shindan  extends Pc_Moppy {
 	/** 「クマクマ総選挙URL」 */
 	String shindan_link;
 	/** 「獲得ポイント」 */
