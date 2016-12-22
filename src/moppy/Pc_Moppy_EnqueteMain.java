@@ -1,14 +1,22 @@
 package moppy;
 
-import moppy.ad_areas.Moppy_Enquete;
+import moppy.enquete.Moppy_Enquete;
 
+/**
+ * =====================================================================================================================
+ * モッピー：アンケート
+ * =====================================================================================================================
+ *
+ * @author kimC
+ *
+ */
 public class Pc_Moppy_EnqueteMain {
 
 	public static void main(String[] args) {
-		// モッピー：クマクマ総選挙
+		// モッピー：アンケート
 		Moppy_Enquete enquete = new Moppy_Enquete();
 		int point = enquete.execute();
-		System.out.println("漫画アンケート終了。獲得済みポイント"+point);
+		System.out.println("【モッピー】アンケート終了。獲得済みポイント"+point);
 	}
 
 }

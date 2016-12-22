@@ -50,7 +50,7 @@ public class Column_Enquete {
 				// 「進む」
 				driver.findElement(By.xpath("//input[@value='next']")).click();
 				// タブを閉じる
-				tab_close(driver,originalHandle,By.xpath("//input[@value='next']"));
+				tab_close(driver, originalHandle, By.xpath("//input[@value='next']"));
 				// 1.5秒待ち
 				Thread.sleep(1500);
 			} else {
@@ -59,6 +59,16 @@ public class Column_Enquete {
 		}
 		// 広告を閉じる
 		ad_close(driver);
+		// タブを閉じる
+		tab_close(driver, originalHandle, By.xpath("//input[@alt='進む']"));
+		// 広告を閉じる
+		ad_close(driver);
+		// タブを閉じる
+		tab_close(driver, originalHandle, By.xpath("//input[@alt='進む']"));
+		// 広告を閉じる
+		ad_close(driver);
+		// タブを閉じる
+		tab_close(driver, originalHandle, By.xpath("//input[@alt='進む']"));
 		// 「進む」
 		driver.findElement(By.xpath("//input[@alt='進む']")).click();
 		// 1.5秒待ち
@@ -68,7 +78,7 @@ public class Column_Enquete {
 		// 「次へ」
 		driver.findElement(By.xpath("//input[@value='次へ']")).click();
 		// タブを閉じる
-		tab_close(driver,originalHandle,By.xpath("//input[@value='next']"));
+		tab_close(driver, originalHandle, By.xpath("//input[@value='next']"));
 		// 3秒待ち
 		Thread.sleep(3000);
 		// 「年齢」
@@ -76,7 +86,7 @@ public class Column_Enquete {
 		// 「次へ」
 		driver.findElement(By.xpath("//input[@value='次へ']")).click();
 		// タブを閉じる
-		tab_close(driver,originalHandle,By.xpath("//input[@value='next']"));
+		tab_close(driver, originalHandle, By.xpath("//input[@value='next']"));
 		// 3秒待ち
 		Thread.sleep(3000);
 		// 「アンケート」
@@ -88,14 +98,18 @@ public class Column_Enquete {
 				// 「次へ」
 				driver.findElement(By.xpath("//input[@value='次へ']")).click();
 				// タブを閉じる
-				tab_close(driver,originalHandle,By.xpath("//input[@value='next']"));
+				tab_close(driver, originalHandle, By.xpath("//input[@value='次へ']"));
 				// 3秒待ち
 				Thread.sleep(3000);
 			} else {
+				// 広告を閉じる
+				ad_close(driver);
 				// 「進む」
 				driver.findElement(By.xpath("//input[@alt='進む']")).click();
 				// タブを閉じる
-				tab_close(driver,originalHandle,By.xpath("//input[@value='next']"));
+				tab_close(driver, originalHandle, By.xpath("//input[@alt='進む']"));
+				// タブを閉じる
+				tab_close(driver, originalHandle, By.xpath("//input[@alt='進む']"));
 				break;
 			}
 

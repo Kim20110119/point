@@ -92,25 +92,6 @@ public class PointConstants {
 	public static final String POINTI_LOGIN_PASSWORD = "20110119Jjz";
 
 	// ==================================================================================================================
-	// モッピー
-	// ==================================================================================================================
-	/** 【モッピー】:ログインURL */
-	public static final String MOPPY_LOGIN_URL = "https://ssl.pc.moppy.jp/login/";
-	/** 【モッピー】:ログインメールアドレス */
-	public static final String MOPPY_LOGIN_MAIL = "kim-c@softbank.ne.jp";
-	/** 【モッピー】:ログインパスワード */
-	public static final String MOPPY_LOGIN_PASSWORD = "20110119Jjz";
-	/** 【モッピー】:ゲームコンテンツURL */
-	public static final String MOPPY_GAMECONTENTS_URL = "http://pc.moppy.jp/gamecontents/";
-	/** 【モッピー】:毎日クリックコインURL */
-	public static final String MOPPY_CLICK_COIN_URL = "http://pc.moppy.jp/cc/";
-	/** 【モッピー】:ポイントリサーチURL */
-	public static final String MOPPY_POINT_RESEARCH_URL = "http://pc.moppy.jp/point_research/index.php";
-
-	/** 【モッピー】:ゲームコンテンツURL */
-	public static final String MOPPY_CM_URL = "http://pc.moppy.jp/forward/?t=12489";
-
-	// ==================================================================================================================
 	// 【ポイントランド】
 	// ==================================================================================================================
 	/** 【ポイントランド】:ログインURL */

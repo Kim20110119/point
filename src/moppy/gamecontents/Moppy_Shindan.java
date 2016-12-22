@@ -1,7 +1,7 @@
 package moppy.gamecontents;
 
 import static common.constant.HtmlConstants.*;
-import static common.constant.PointConstants.*;
+import static common.constant.MoppyConstants.*;
 
 import org.openqa.selenium.By;
 
@@ -33,7 +33,7 @@ public class Moppy_Shindan  extends Pc_Moppy {
 	 */
 	public Moppy_Shindan() {
 		// 「WEB診断」
-		driver.get(MOPPY_GAMECONTENTS_URL);
+		driver.get(PC_GAMECONTENTS_URL);
 	}
 
 	/**

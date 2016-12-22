@@ -1,23 +1,24 @@
-package moppy.ad_areas;
+package chance.ad_areas;
 
 import static common.Common.*;
+import static common.constant.ChanceConstants.*;
+import static common.constant.CommonConstants.*;
 import static common.constant.HtmlConstants.*;
-import static common.constant.PointConstants.*;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
-import gendama.Pc_Gendama;
+import chance.Pc_Chance;
 
 /**
  * =====================================================================================================================
- * げん玉：クマクマ総選挙
+ * チャンスイット：クマクマ総選挙
  * =====================================================================================================================
  *
  * @author kimC
  *
  */
-public class Moppy_Election extends Pc_Gendama {
+public class Chance_Election extends Pc_Chance {
 	/** 「daily-points」 */
 	private static final String C_D_P = "daily-points";
 	/** 「クマクマ総選挙URL」 */
@@ -32,9 +33,9 @@ public class Moppy_Election extends Pc_Gendama {
 	/**
 	 * コンストラクタ
 	 */
-	public Moppy_Election() {
+	public Chance_Election() {
 		// 「CMくじ」
-		driver.get(GENDAMA_CM_URL);
+		driver.get(PC_CM_URL);
 	}
 
 	/**
@@ -50,7 +51,7 @@ public class Moppy_Election extends Pc_Gendama {
 	public Integer execute() {
 		try {
 			// 「クマクマ総選挙URL」取得する
-			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(6)
+			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_4)
 					.getAttribute(A_HREF);
 			if (StringUtils.isNoneEmpty(election_url)) {
 				// 「クマクマ総選挙画面」
@@ -69,22 +70,31 @@ public class Moppy_Election extends Pc_Gendama {
 				for (int i = 0; i < 500; i++) {
 					start();
 					if (restart_flag) {
+						// 「クマクマ総選挙画面」
+						driver.get(election_url);
+						// 「アンケート開始」
+						click(getByClass("start__button"));
+						// アンケート件数
+						enquete_count = driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).size();
 						if (enquete_count < 1) {
 							driver.quit();
 							return point_count;
+						}else{
+							// 「アンケート画面」
+							driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0).click();
 						}
 					}
 					// 獲得ポイントカウント
 					point_count += 1;
 				}
 			} else {
-				System.out.println("=====クマクマ総選挙URL取得失敗");
+				System.out.println("【エラー】：クマクマ総選挙URL取得失敗");
 			}
 			driver.quit();
 			return point_count;
 		} catch (Exception e) {
 			driver.quit();
-			System.out.println("===クマクマ総選挙失敗");
+			System.out.println("【エラー】：クマクマ総選挙失敗");
 			return point_count;
 		}
 	}
@@ -114,39 +124,11 @@ public class Moppy_Election extends Pc_Gendama {
 			// 1秒待ち
 			sleep(1000);
 		} catch (Exception e) {
-			System.out.println("=====選挙スタート失敗");
-			System.out.println("=====クマクマ総選挙遷移再スタート");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
+			System.out.println("【エラー】：選挙スタート失敗");
+			System.out.println("【エラー】：クマクマ総選挙遷移再スタート");
 			point_count -= 1;
-			restart();
-		}
-	}
-
-	/**
-	 * =================================================================================================================
-	 * 投票再スタート
-	 * =================================================================================================================
-	 *
-	 * @author kimC
-	 *
-	 */
-	public void restart() {
-		try {
-			// 「クマクマ総選挙画面」
-			driver.get(election_url);
-			// 「アンケート開始」
-			click(getByClass("start__button"));
-			// アンケート件数
-			enquete_count = driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).size();
-			// 「アンケート画面」
-			driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0).click();
-		} catch (Exception e) {
-			System.out.println("=====選挙再スタート失敗");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
+			// 「再スタートフラグ」
+			restart_flag = Boolean.TRUE;
 		}
 	}
 

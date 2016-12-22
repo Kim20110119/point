@@ -2,7 +2,7 @@ package moppy.research;
 
 import static common.Common.*;
 import static common.constant.HtmlConstants.*;
-import static common.constant.PointConstants.*;
+import static common.constant.MoppyConstants.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -43,7 +43,7 @@ public class Moppy_Research extends Pc_Moppy {
 	 */
 	public Moppy_Research() {
 		// 「ポイントリサーチ」
-		driver.get(MOPPY_POINT_RESEARCH_URL);
+		driver.get(PC_POINT_RESEARCH_URL);
 	}
 
 	/**
@@ -62,13 +62,14 @@ public class Moppy_Research extends Pc_Moppy {
 			int enquete_count = getSize(getByClass(C_P_B_B));
 			for (int i = 0; i < enquete_count; i++) {
 				start();
-				point_count += 1;
+				// 「ポイントリサーチ」
+				driver.get(PC_POINT_RESEARCH_URL);
 			}
 			driver.quit();
 			return point_count;
 		} catch (Exception e) {
 			driver.quit();
-			System.out.println("===ポイントリサーチ失敗");
+			System.out.println("【エラー】：ポイントリサーチ失敗");
 			return point_count;
 		}
 	}
@@ -140,6 +141,8 @@ public class Moppy_Research extends Pc_Moppy {
 					clickByIndex(getByClass(C_U_L_R), int_random(q_r_count));
 				} else if (q_c_count > 0) {
 					clickByIndex(getByClass(C_U_L_C), int_random(q_c_count));
+					clickByIndex(getByClass(C_U_L_C), int_random(q_c_count));
+					clickByIndex(getByClass(C_U_L_C), int_random(q_c_count));
 				} else if (q_s_count > 0) {
 					selectByIndex(getByClass(C_U_S), int_random(3));
 				} else {
@@ -150,47 +153,20 @@ public class Moppy_Research extends Pc_Moppy {
 				// 「次へ」
 				click(getByClass(C_U_B));
 			}
-			// TODO 広告を閉じる
+			// 1秒待ち
+			sleep(1500);
+			// 広告を閉じる
+			ad_close(driver);
 			// 「ポイント獲得」
 			click(getByXpath(T_INPUT, A_VALUE, "ポイント獲得"));
+			// 1秒待ち
+			sleep(1500);
 			ad_close(driver);
 			// 「閉じる」
 			driver.findElement(By.partialLinkText("閉じる"));
-
+			point_count += 1;
 		} catch (Exception e) {
-			System.out.println("=====選挙スタート失敗");
-			System.out.println("=====ポイントリサーチ遷移再スタート");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
-			point_count -= 1;
-			restart();
-		}
-	}
-
-	/**
-	 * =================================================================================================================
-	 * 投票再スタート
-	 * =================================================================================================================
-	 *
-	 * @author kimC
-	 *
-	 */
-	public void restart() {
-		try {
-			// 「ポイントリサーチ画面」
-			driver.get(election_url);
-			// 「アンケート開始」
-			click(getByClass("start__button"));
-			// アンケート件数
-			enquete_count = driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).size();
-			// 「アンケート画面」
-			driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0).click();
-		} catch (Exception e) {
-			System.out.println("=====選挙再スタート失敗");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
+			System.out.println("【エラー】：ポイントリサーチ失敗");
 		}
 	}
 

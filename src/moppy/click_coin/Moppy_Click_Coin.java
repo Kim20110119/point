@@ -2,7 +2,7 @@ package moppy.click_coin;
 
 import static common.Common.*;
 import static common.constant.HtmlConstants.*;
-import static common.constant.PointConstants.*;
+import static common.constant.MoppyConstants.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -43,7 +43,7 @@ public class Moppy_Click_Coin  extends Pc_Moppy {
 	 */
 	public Moppy_Click_Coin() {
 		// 「毎日クリックコイン」
-		driver.get(MOPPY_CLICK_COIN_URL);
+		driver.get(PC_CLICK_COIN_URL);
 	}
 
 	/**

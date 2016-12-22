@@ -37,6 +37,12 @@ public class CommonConstants {
 	public static final String S_ENQUETE = ".*アンケート.*";
 	/** 「性別」文字列 */
 	public static final String S_SEX = ".*あなたの性別をお知らせください.*";
+	/** 「年齢」文字列 */
+	public static final String S_AGE = ".*あなたの年齢をお知らせください.*";
+	/** 「職業」文字列 */
+	public static final String S_JOB = ".*あなたの職業をお知らせください.*";
+	/** 「お住まい」文字列 */
+	public static final String S_ADDRESS = ".*あなたのお住まいをお知らせください.*";
 
 	// ==================================================================================================================
 	// 【整数】

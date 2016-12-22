@@ -1,4 +1,4 @@
-package moppy.ad_areas;
+package chance.ad_areas;
 
 import static common.constant.HtmlConstants.*;
 import static common.constant.PointConstants.*;
@@ -6,22 +6,24 @@ import static common.constant.PointConstants.*;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
+import chobirich.Pc_Chobirich;
 import common.enquete.Manga_enquete;
-import moppy.Pc_Moppy;
 
 /**
  * =====================================================================================================================
- * モッピー：漫画アンケート
+ * げん玉：漫画アンケート
  * =====================================================================================================================
  *
  * @author kimC
  *
  */
-public class Moppy_Enquete extends Pc_Moppy {
+public class Chance_Enquete extends Pc_Chobirich {
 	/** 「daily-points」 */
 	private static final String C_D_P = "daily-points";
-	/** 「漫画アンケートURL」 */
+	/** 「漫画アンケートリンク」 */
 	String enquete_link;
+	/** 「漫画アンケートURL」 */
+	String enquete_url;
 	/** 「獲得ポイント」 */
 	int point_count = 0;
 	/** 「再スタートフラグ」 */
@@ -32,9 +34,9 @@ public class Moppy_Enquete extends Pc_Moppy {
 	/**
 	 * コンストラクタ
 	 */
-	public Moppy_Enquete() {
+	public Chance_Enquete() {
 		// 「CMくじ」
-		driver.get(MOPPY_CM_URL);
+		driver.get(CHOBIRICH_CM_URL);
 	}
 
 	/**
@@ -57,7 +59,7 @@ public class Moppy_Enquete extends Pc_Moppy {
 				driver.get(enquete_link);
 				int enquete_count = driver.findElements(By.partialLinkText("回答する")).size();
 				for(int i = 0; i < enquete_count; i++){
-					String enquete_url = driver.findElements(By.partialLinkText("回答する")).get(0).getAttribute(A_HREF);
+					enquete_url = driver.findElements(By.partialLinkText("回答する")).get(0).getAttribute(A_HREF);
 					driver.get(enquete_url);
 					start();
 					// 「漫画アンケート画面」
@@ -66,13 +68,13 @@ public class Moppy_Enquete extends Pc_Moppy {
 				// 獲得ポイントカウント
 				point_count += 10;
 			} else {
-				System.out.println("=====漫画アンケートURL取得失敗");
+				System.out.println("【エラー】：漫画アンケートURL取得失敗");
 			}
 			driver.quit();
 			return point_count;
 		} catch (Exception e) {
 			driver.quit();
-			System.out.println("===漫画アンケート失敗");
+			System.out.println("【エラー】：漫画アンケート失敗");
 			return point_count;
 		}
 	}
@@ -89,7 +91,7 @@ public class Moppy_Enquete extends Pc_Moppy {
 		try {
 			Manga_enquete.execute(driver);
 		} catch (Exception e) {
-			System.out.println("=====【エラー】：漫画アンケート失敗！");
+			System.out.println("【エラー】：漫画アンケート失敗！");
 			point_count -= 10;
 			restart();
 		}
@@ -105,9 +107,10 @@ public class Moppy_Enquete extends Pc_Moppy {
 	 */
 	public void restart() {
 		try {
+			driver.get(enquete_url);
 			Manga_enquete.execute(driver);
 		} catch (Exception e) {
-			System.out.println("=====【エラー】：漫画アンケート再スタート失敗！");
+			System.out.println("【エラー】：漫画アンケート再スタート失敗！");
 		}
 	}
 

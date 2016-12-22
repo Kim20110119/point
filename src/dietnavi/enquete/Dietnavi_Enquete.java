@@ -32,6 +32,8 @@ public class Dietnavi_Enquete extends Pc_Dietnavi {
 	Boolean restart_flag = Boolean.FALSE;
 	/** 「アンケート件数」 */
 	int enquete_count = 0;
+	/** 「アンケート件数」 */
+	int enquete_index = 0;
 
 	/**
 	 * コンストラクタ
@@ -56,7 +58,7 @@ public class Dietnavi_Enquete extends Pc_Dietnavi {
 		int enquete_count = getSize(getByXpath(T_TD, A_CLASS, C_S_S));
 		for (int i = 0; i < enquete_count; i++) {
 			// 「アンケートURL」取得する
-			enquete_url = driver.findElements(By.className(C_S_S)).get(i).findElement(By.tagName(T_A))
+			enquete_url = driver.findElements(By.className(C_S_S)).get(enquete_index).findElement(By.tagName(T_A))
 					.getAttribute(A_HREF);
 			driver.get(enquete_url);
 			String current_url = driver.getCurrentUrl();
@@ -67,6 +69,7 @@ public class Dietnavi_Enquete extends Pc_Dietnavi {
 			} else if (current_url.matches(ADSURVEY_URL)) {
 				ad_start();
 			}else{
+				enquete_index++;
 			}
 			// 「アンケート」
 			driver.get(PC_ENQUETE_URL);
@@ -91,6 +94,7 @@ public class Dietnavi_Enquete extends Pc_Dietnavi {
 			point_count += 5;
 		} catch (Exception e) {
 			System.out.println("【エラー】：MINIアンケートスタート失敗");
+			enquete_index++;
 		}
 	}
 
@@ -108,6 +112,7 @@ public class Dietnavi_Enquete extends Pc_Dietnavi {
 			point_count += 5;
 		} catch (Exception e) {
 			System.out.println("【エラー】：ADアンケートスタート失敗");
+			enquete_index++;
 		}
 	}
 
@@ -125,6 +130,7 @@ public class Dietnavi_Enquete extends Pc_Dietnavi {
 			point_count += 5;
 		} catch (Exception e) {
 			System.out.println("【エラー】：COLUMNアンケートスタート失敗");
+			enquete_index++;
 		}
 	}
 

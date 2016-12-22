@@ -63,6 +63,8 @@ public class Mini_Survey_Enquete {
 			// 「次へ進む」ボタン
 			driver.findElement(By.xpath("//button[@type='submit']")).click();
 		}
+		// 1秒待ち
+		Thread.sleep(1000);
 		// 「性別」
 		driver.findElement(By.id("Q13_1")).click();
 		// 1秒待ち

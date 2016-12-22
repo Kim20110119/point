@@ -1,4 +1,4 @@
-package moppy.ad_areas;
+package chance.ad_areas;
 
 import static common.constant.HtmlConstants.*;
 import static common.constant.PointConstants.*;
@@ -6,8 +6,8 @@ import static common.constant.PointConstants.*;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
+import chobirich.Pc_Chobirich;
 import common.enquete.Adsurvey_Enquete;
-import gendama.Pc_Gendama;
 
 /**
  * =====================================================================================================================
@@ -17,7 +17,7 @@ import gendama.Pc_Gendama;
  * @author kimC
  *
  */
-public class Moppy_Reados extends Pc_Gendama {
+public class Chance_Reados extends Pc_Chobirich {
 
 	/** 「daily-points」 */
 	private static final String C_D_P = "daily-points";
@@ -31,13 +31,13 @@ public class Moppy_Reados extends Pc_Gendama {
 	/**
 	 * コンストラクタ
 	 */
-	public Moppy_Reados(){
+	public Chance_Reados(){
 		// 「CMくじ」
-		driver.get(GENDAMA_CM_URL);
+		driver.get(CHOBIRICH_CM_URL);
 	}
 	/**
 	 * =================================================================================================================
-	 * クマクマ調査団
+	 * クマクマ調査団メイン処理
 	 * =================================================================================================================
 	 *
 	 * @param WebDriver
@@ -50,7 +50,7 @@ public class Moppy_Reados extends Pc_Gendama {
 	 */
 	public Integer execute() {
 		// 「クマクマ調査団URL」
-		reados_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(5).getAttribute(A_HREF);
+		reados_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_4).getAttribute(A_HREF);
 		if(StringUtils.isNotEmpty(reados_url)){
 			// 「クマクマ調査団画面」
 			driver.get(reados_url);
@@ -60,10 +60,11 @@ public class Moppy_Reados extends Pc_Gendama {
 			for (int i = 0; i < enquete_count; i++) {
 				// 調査スタート
 				start();
+				// 「クマクマ調査団画面」
 				driver.get(reados_url);
 			}
 		}else{
-			System.out.println("=====クマクマ調査団URL取得失敗");
+			System.out.println("【エラー】：クマクマ調査団URL取得失敗!");
 		}
 		driver.quit();
 		return point_count;
@@ -71,7 +72,7 @@ public class Moppy_Reados extends Pc_Gendama {
 
 	/**
 	 * =================================================================================================================
-	 * 調査スタート
+	 * クマクマ調査スタート
 	 * =================================================================================================================
 	 *
 	 * @author kimC
@@ -79,21 +80,23 @@ public class Moppy_Reados extends Pc_Gendama {
 	 */
 	public void start() {
 		try {
-			// 「アンケートURL」
-			String enquete_url = driver.findElement(By.className(C_E_B)).findElements(By.tagName(T_A)).get(0)
+			// 「AdsurveyアンケートURL」
+			String enquete_url = driver.findElement(By.className(C_E_B)).findElements(By.tagName(T_A)).get(INT_0)
 					.getAttribute(A_HREF);
-			// 「該当するAdsurveyアンケート」へ遷移する
-			driver.get(enquete_url);
-			// 「アンケート回答」
-			if (Adsurvey_Enquete.execute(driver)) {
-				point_count += 10;
+			if(StringUtils.isNotEmpty(enquete_url)){
+				// 「該当するAdsurveyアンケート」へ遷移する
+				driver.get(enquete_url);
+				// 「Adsurveyアンケート回答」
+				if (Adsurvey_Enquete.execute(driver)) {
+					point_count += 10;
+				}
+			}else{
+				System.out.println("【エラー】：AdsurveyアンケートURL取得失敗!");
 			}
+
 		} catch (Exception e) {
-			System.out.println("=====調査タート失敗");
-			System.out.println("=====クマクマ調査団遷移再スタート");
-			System.out.println("...");
-			System.out.println("...");
-			System.out.println("...");
+			System.out.println("【エラー】：Adsurveyアンケート回答失敗!");
+			Adsurvey_Enquete.execute_restart(driver);
 		}
 	}
 }
