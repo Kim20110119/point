@@ -53,9 +53,6 @@ public class Pointi_Prices extends Pc_Pointi {
 	 */
 	public Integer execute() {
 		try{
-
-//			click(By.partialLinkText("調査開始！"));
-
 			int start_count = driver.findElements(By.partialLinkText("調査開始！")).size();
 			for(int start_i = 0; start_i < start_count; start_i++ ){
 				driver.findElements(By.partialLinkText("調査開始！")).get(start_i).click();

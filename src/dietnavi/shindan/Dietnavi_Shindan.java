@@ -27,7 +27,7 @@ public class Dietnavi_Shindan extends Point {
 	/** 「WEB診断開始番号」 */
 	int start = 0;
 	/** 「WEB診断終了番号」 */
-	int end = 6;
+	int end = 4;
 
 	/**
 	 * コンストラクタ

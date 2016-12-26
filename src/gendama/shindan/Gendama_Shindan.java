@@ -1,7 +1,7 @@
 package gendama.shindan;
 
+import static common.constant.GendamaConstants.*;
 import static common.constant.HtmlConstants.*;
-import static common.constant.PointConstants.*;
 
 import org.openqa.selenium.By;
 
@@ -33,7 +33,7 @@ public class Gendama_Shindan  extends Pc_Gendama {
 	 */
 	public Gendama_Shindan() {
 		// 「WEB診断」
-		driver.get(GENDAMA_WEB_SHINDAN_URL);
+		driver.get(PC_WEB_SHINDAN_URL);
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class Gendama_Shindan  extends Pc_Gendama {
 				restart();
 			}
 		// 「WEB診断」
-		driver.get(GENDAMA_WEB_SHINDAN_URL);
+		driver.get(PC_WEB_SHINDAN_URL);
 		}
 		driver.quit();
 		return point_count;

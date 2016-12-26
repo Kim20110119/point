@@ -1,7 +1,8 @@
 package gendama.mrga;
 
+import static common.constant.CommonConstants.*;
+import static common.constant.GendamaConstants.*;
 import static common.constant.HtmlConstants.*;
-import static common.constant.PointConstants.*;
 
 import org.openqa.selenium.By;
 
@@ -32,7 +33,7 @@ public class Gendama_DiagnosisMediaAd extends Pc_Gendama {
 	 */
 	public Gendama_DiagnosisMediaAd() {
 		// げん玉：モリゲー
-		driver.get(GENDAMA_AD_ENQ_LIST_URL);
+		driver.get(PC_AD_ENQ_LIST_URL);
 	}
 
 	/**
@@ -65,7 +66,7 @@ public class Gendama_DiagnosisMediaAd extends Pc_Gendama {
 				point_index++;
 				continue;
 			}
-			driver.get(GENDAMA_AD_ENQ_LIST_URL);
+			driver.get(PC_AD_ENQ_LIST_URL);
 		}
 		return point_count;
 
@@ -98,10 +99,10 @@ public class Gendama_DiagnosisMediaAd extends Pc_Gendama {
 	public void enquete_start() {
 		try {
 			String enquete_url = driver.getCurrentUrl();
-			if(enquete_url.matches(GENDAMA_COLUMN_URL)){
+			if(enquete_url.matches(PC_COLUMN_URL)){
 				Column_Enquete.execute(driver);
 				point_count += 10;
-			}else if(enquete_url.matches(GENDAMA_MRGA_URL)){
+			}else if(enquete_url.matches(PC_MRGA_URL)){
 				Adsurvey_Enquete.execute(driver);
 				point_count += 10;
 			}else{

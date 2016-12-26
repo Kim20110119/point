@@ -1,6 +1,6 @@
 package gendama.mrga;
 
-import static common.constant.PointConstants.*;
+import static common.constant.GendamaConstants.*;
 
 import java.util.Random;
 
@@ -27,7 +27,7 @@ public class Gendama_VoteMediaAd extends Pc_Gendama {
 	 */
 	public Gendama_VoteMediaAd() {
 		// げん玉：モリゲー
-		driver.get(GENDAMA_AD_ENQ_LIST_URL);
+		driver.get(PC_AD_ENQ_LIST_URL);
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class Gendama_VoteMediaAd extends Pc_Gendama {
 			driver.findElement(By.className("start__button")).click();
 			String end_message = getEndMessage();
 			// 本日の終了を判断する
-			if (end_message.matches(GENDAMA_END_MESSAGE)) {
+			if (end_message.matches(PC_END_MESSAGE)) {
 				System.out.println(end_message);
 				// ドライバー終了
 				driver.quit();

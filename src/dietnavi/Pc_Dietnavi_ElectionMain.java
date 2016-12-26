@@ -4,7 +4,7 @@ import dietnavi.ad_areas.Dietnavi_Election;
 
 /**
  * =====================================================================================================================
- * GetMoney：アンケート
+ * GetMoney：クマクマ総選挙
  * =====================================================================================================================
  *
  * @author kimC
@@ -13,10 +13,10 @@ import dietnavi.ad_areas.Dietnavi_Election;
 public class Pc_Dietnavi_ElectionMain {
 
 	public static void main(String[] args) {
-		// GetMoney：アンケート
+		// GetMoney：クマクマ総選挙
 		Dietnavi_Election forest = new Dietnavi_Election();
 		int point = forest.execute();
-		System.out.println("【GetMoney】アンケート終了。獲得済みのポイント" + point);
+		System.out.println("【GetMoney】クマクマ総選挙。獲得済みのポイント" + point);
 	}
 
 }

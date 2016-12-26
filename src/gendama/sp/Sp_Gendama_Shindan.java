@@ -1,8 +1,8 @@
 package gendama.sp;
 
 import static common.Common.*;
+import static common.constant.GendamaConstants.*;
 import static common.constant.HtmlConstants.*;
-import static common.constant.PointConstants.*;
 
 import org.openqa.selenium.By;
 
@@ -34,7 +34,7 @@ public class Sp_Gendama_Shindan extends Sp_Gendama {
 	 */
 	public Sp_Gendama_Shindan() {
 		// 「WEB診断」
-		driver.get(SP_GENDAMA_WEB_SHINDAN_URL);
+		driver.get(SP_WEB_SHINDAN_URL);
 	}
 
 	/**
@@ -54,7 +54,6 @@ public class Sp_Gendama_Shindan extends Sp_Gendama {
 			// 0.5秒待ち
 			sleep(500);
 			// 診断URL
-//			election_url = driver.findElements(By.id("nosnap")).get(1).findElements(By.tagName(T_A)).get(0).getAttribute(A_HREF);
 			election_url = "http://www.gendama.jp/sp/client_detail?cd_client="+i+"&rt=s";
 			// WEB診断
 			driver.get(election_url);
@@ -74,7 +73,7 @@ public class Sp_Gendama_Shindan extends Sp_Gendama {
 			}
 
 			// 「WEB診断」
-			driver.get(SP_GENDAMA_WEB_SHINDAN_URL);
+			driver.get(SP_WEB_SHINDAN_URL);
 		}
 		driver.quit();
 		return point_count;

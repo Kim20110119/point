@@ -1,6 +1,6 @@
 package gendama.home;
 
-import static common.constant.PointConstants.*;
+import static common.constant.GendamaConstants.*;
 
 import gendama.Pc_Gendama;
 
@@ -17,7 +17,7 @@ public class Gendama_Forest extends Pc_Gendama  {
 
 	public Gendama_Forest() {
 		// げん玉：ポイントの森
-		driver.get(GENDAMA_FOREST_URL);
+		driver.get(PC_FOREST_URL);
 	}
 
 	// =================================================================================================================

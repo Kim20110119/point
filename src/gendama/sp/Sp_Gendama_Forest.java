@@ -1,6 +1,6 @@
 package gendama.sp;
 
-import static common.constant.PointConstants.*;
+import static common.constant.GendamaConstants.*;
 
 import org.openqa.selenium.By;
 
@@ -25,7 +25,7 @@ public class Sp_Gendama_Forest extends Sp_Gendama  {
 	 */
 	public Sp_Gendama_Forest() {
 		// げん玉：ポイントの森(携帯)
-		driver.get(SP_GENDAMA_FOREST_URL);
+		driver.get(SP_FOREST_URL);
 	}
 
 	// =================================================================================================================
@@ -40,10 +40,8 @@ public class Sp_Gendama_Forest extends Sp_Gendama  {
 			int taped_count = getSize(getByClass(C_T));
 			for (int i = 0; i < taped_count; i++) {
 				driver.findElements(By.className(C_T)).get(i).click();
-				driver.get(SP_GENDAMA_FOREST_URL);
+				driver.get(SP_FOREST_URL);
 			}
-			// 「5pt」
-//			click(getByXpath("img", "src", "//img.gendama.jp/img/forest/star.gif"));
 			Thread.sleep(1000);
 			driver.quit();
 		} catch (Exception e) {

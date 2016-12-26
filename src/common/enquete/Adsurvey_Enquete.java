@@ -130,7 +130,7 @@ public class Adsurvey_Enquete {
 	public static Boolean execute_restart(WebDriver driver){
 		try {
 			// 「次へ」ボタン
-			driver.findElement(By.className("btn_regular")).click();
+			next(driver);
 			// 0.5秒待ち
 			Thread.sleep(500);
 			// 「アンケート質問」
@@ -177,6 +177,27 @@ public class Adsurvey_Enquete {
 			return Boolean.TRUE;
 		} catch (Exception e) {
 			return Boolean.FALSE;
+		}
+
+	}
+
+	/**
+	 * =================================================================================================================
+	 * Adsurveyアンケート再スタート
+	 * =================================================================================================================
+	 *
+	 * @param WebDriver
+	 *            driver
+	 * @return execute_flag
+	 *
+	 * @author kimC
+	 *
+	 */
+	public static void next(WebDriver driver){
+		try {
+			// 「次へ」ボタン
+			driver.findElement(By.className("btn_regular")).click();
+		} catch (Exception e) {
 		}
 
 	}

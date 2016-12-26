@@ -92,6 +92,7 @@ public class Pointi_Reados extends Pc_Pointi {
 		} catch (Exception e) {
 			System.out.println("【エラー】：調査タート失敗");
 			System.out.println("【エラー】：クマクマ調査団遷移再スタート");
+			Adsurvey_Enquete.execute_restart(driver);
 		}
 	}
 

@@ -16,6 +16,37 @@ public class PointConstants {
 	private PointConstants() {
 	}
 
+	/** 【げん玉】 */
+	public static final String GENDAMA = "げん玉";
+	/** 【森のポイント】 */
+	public static final String FOREST = "ポイントの森";
+	/** 【モリモリアンケート・診断】 */
+	public static final String DIAGNOSIS_MEDIA_AD = "モリモリアンケート・診断";
+	/** 【モリモリクイズ】 */
+	public static final String MORIMORI_QUIZ = "モリモリクイズ";
+	/** 【モリモリ多数決】 */
+	public static final String VOTE_MEDIA_AD = "モリモリ多数決";
+	/** 【リアルワールド】 */
+	public static final String REALWORLD = "リアルワールド";
+	/** 【お財布】 */
+	public static final String OSAIFU = "お財布";
+	/** 【ハピタス】 */
+	public static final String HAPITAS = "ハピタス";
+
+	/** 【クマクマ総選挙】 */
+	public static final String ELECTION = "クマクマ総選挙";
+	/** 【クマクマ調査団】 */
+	public static final String READOS = "クマクマ調査団";
+	/** 【ザ・ご当地検定】 */
+	public static final String LOCAL_QUIZS = "ザ・ご当地検定";
+	/** 【漫画アンケート】 */
+	public static final String MANGA_ENQUETE = "漫画アンケート";
+	/** 【WEB診断】 */
+	public static final String WEB_SHINDAN = "WEB診断";
+
+
+
+
 	// ==================================================================================================================
 	// 【げん玉】
 	// ==================================================================================================================

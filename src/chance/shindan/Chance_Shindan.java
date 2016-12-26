@@ -25,9 +25,9 @@ public class Chance_Shindan extends Point {
 	/** 「再スタートフラグ」 */
 	Boolean restart_flag = Boolean.FALSE;
 	/** 「WEB診断開始番号」 */
-	int start = 26;
+	int start = 0;
 	/** 「WEB診断終了番号」 */
-	int end = 27;
+	int end = 4;
 
 	/**
 	 * コンストラクタ

@@ -1,8 +1,8 @@
 package gendama.mrga;
 
 import static common.Common.*;
+import static common.constant.GendamaConstants.*;
 import static common.constant.HtmlConstants.*;
-import static common.constant.PointConstants.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +27,7 @@ public class Gendama_Quiz extends Pc_Gendama {
 	 */
 	public Gendama_Quiz() {
 		// げん玉：モリモリクイズ
-		driver.get(GENDAMA_MRGA_QUIZ_URL);
+		driver.get(PC_MRGA_QUIZ_URL);
 	}
 
 	/**

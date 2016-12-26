@@ -1,7 +1,8 @@
 package gendama.sp;
 
+import static common.constant.CommonConstants.*;
+import static common.constant.GendamaConstants.*;
 import static common.constant.HtmlConstants.*;
-import static common.constant.PointConstants.*;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
@@ -34,7 +35,7 @@ public class Sp_Gendama_Reados extends Sp_Gendama {
 	 */
 	public Sp_Gendama_Reados(){
 		// 「CMくじ」
-		driver.get(SP_GENDAMA_CM_URL);
+		driver.get(SP_CM_URL);
 	}
 	/**
 	 * =================================================================================================================

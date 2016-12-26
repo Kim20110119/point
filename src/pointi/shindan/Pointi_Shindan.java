@@ -26,7 +26,7 @@ public class Pointi_Shindan  extends Pc_Pointi {
 	/** 「WEB診断開始番号」 */
 	int start = 0;
 	/** 「WEB診断終了番号」 */
-	int end = 5;
+	int end = 7;
 
 	/**
 	 * コンストラクタ

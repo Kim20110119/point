@@ -1,7 +1,8 @@
 package gendama.ad_areas;
 
+import static common.constant.CommonConstants.*;
+import static common.constant.GendamaConstants.*;
 import static common.constant.HtmlConstants.*;
-import static common.constant.PointConstants.*;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
@@ -36,7 +37,7 @@ public class Gendama_Enquete extends Pc_Gendama {
 	 */
 	public Gendama_Enquete() {
 		// 「CMくじ」
-		driver.get(GENDAMA_CM_URL);
+		driver.get(PC_CM_URL);
 	}
 
 	/**

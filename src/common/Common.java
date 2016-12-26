@@ -41,4 +41,21 @@ public class Common {
 		}
 	}
 
+	/**
+	 * 終了メッセージを取得する処理.<BR>
+	 *
+	 * @param String
+	 *            site サイト名
+	 * @param String
+	 *            item 項目
+	 * @param int
+	 *            point ポイント
+	 *
+	 * @return String end_message 終了メッセージ
+	 *
+	 */
+	public static String get_end_message(String site, String item, int point) {
+		return "【" + site + "】：" + item + "終了。獲得ずみポイント：" + point;
+	}
+
 }

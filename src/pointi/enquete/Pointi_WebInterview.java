@@ -82,30 +82,7 @@ public class Pointi_WebInterview extends Pc_Pointi {
 			}
 		} catch (Exception e) {
 			System.out.println("【エラー】：WEBインタビュー失敗");
-			restart();
-		}
-	}
-
-	/**
-	 * =================================================================================================================
-	 * WEBインタビュー再スタート
-	 * =================================================================================================================
-	 *
-	 * @author kimC
-	 *
-	 */
-	public void restart() {
-		try {
-            // WEBインタビューのURLへ遷移する
-            driver.get(interview_url);
-			// 「アンケート回答」
-			if (Adsurvey_Enquete.execute_restart(driver)) {
-				point_count += 10;
-			}
-		} catch (Exception e) {
-			System.out.println("===================================");
-			System.out.println("=====WEBインタビュー再スタート失敗");
-			System.out.println("===================================");
+			Adsurvey_Enquete.execute_restart(driver);
 		}
 	}
 

@@ -1,7 +1,8 @@
 package chobirich.ad_areas;
 
+import static common.constant.ChobirichConstants.*;
+import static common.constant.CommonConstants.*;
 import static common.constant.HtmlConstants.*;
-import static common.constant.PointConstants.*;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
@@ -36,7 +37,7 @@ public class Chobirich_Enquete extends Pc_Chobirich {
 	 */
 	public Chobirich_Enquete() {
 		// 「CMくじ」
-		driver.get(CHOBIRICH_CM_URL);
+		driver.get(PC_CM_URL);
 	}
 
 	/**
