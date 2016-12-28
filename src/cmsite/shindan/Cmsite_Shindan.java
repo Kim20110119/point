@@ -1,25 +1,24 @@
-package dietnavi.shindan;
+package cmsite.shindan;
 
-import static common.constant.DietnaviConstants.*;
+import static common.constant.CmsiteConstants.*;
 import static common.constant.HtmlConstants.*;
 
-import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
-import common.Point;
+import cmsite.Pc_Cmsite;
 import common.shindan.WebShindan;
 
 /**
  * =====================================================================================================================
- * GetMoney：WEB診断
+ * げん玉：WEB診断
  * =====================================================================================================================
  *
  * @author kimC
  *
  */
-public class Dietnavi_Shindan extends Point {
-	/** 「診断URL」 */
-	String shindan_url  = StringUtils.EMPTY;
+public class Cmsite_Shindan  extends Pc_Cmsite {
+	/** 「クマクマ総選挙URL」 */
+	String election_url;
 	/** 「獲得ポイント」 */
 	int point_count = 0;
 	/** 「再スタートフラグ」 */
@@ -27,19 +26,19 @@ public class Dietnavi_Shindan extends Point {
 	/** 「WEB診断開始番号」 */
 	int start = 0;
 	/** 「WEB診断終了番号」 */
-	int end = 1;
+	int end = 9;
 
 	/**
 	 * コンストラクタ
 	 */
-	public Dietnavi_Shindan() {
-		// 「WEB診断URL」
+	public Cmsite_Shindan() {
+		// 「WEB診断」
 		driver.get(PC_WEB_SHINDAN_URL);
 	}
 
 	/**
 	 * =================================================================================================================
-	 * GetMoney：WEB診断
+	 * げん玉：WEB診断
 	 * =================================================================================================================
 	 *
 	 * @return int point_couont 獲得済みポイント
@@ -48,20 +47,21 @@ public class Dietnavi_Shindan extends Point {
 	 *
 	 */
 	public Integer execute() {
-		for (int i = start; i < end; i++) {
+		for(int i = start; i < end; i++){
 			// 0.5秒待ち
 			sleep(500);
 			// 診断URL
-			shindan_url = driver.findElements(By.xpath("//a[@role='button']")).get(i).getAttribute(A_HREF);
+			String sindan_url = driver.findElements(By.xpath("//a[@role='button']")).get(i).getAttribute(A_HREF);
 			// WEB診断
-			driver.get(shindan_url);
-			if (!start()) {
+			driver.get(sindan_url);
+			if(start()){
+				point_count += 10;
+			}else{
 				restart();
 			}
-			// 「WEB診断」
-			driver.get(PC_WEB_SHINDAN_URL);
+		// 「WEB診断」
+		driver.get(PC_WEB_SHINDAN_URL);
 		}
-		//
 		driver.quit();
 		return point_count;
 	}
@@ -69,10 +69,9 @@ public class Dietnavi_Shindan extends Point {
 	public Boolean start() {
 		try {
 			WebShindan.execute(driver);
-			point_count += 10;
 			return Boolean.TRUE;
 		} catch (Exception e) {
-			System.out.println("【エラー】：WEB診断失敗");
+			System.out.println("===WEB診断失敗");
 			return Boolean.FALSE;
 		}
 
@@ -80,12 +79,10 @@ public class Dietnavi_Shindan extends Point {
 
 	public void restart() {
 		try {
-			// WEB診断
-			driver.get(shindan_url);
 			WebShindan.execute(driver);
 			point_count += 10;
 		} catch (Exception e) {
-			System.out.println("【エラー】：WEB診断再スタート失敗");
+			System.out.println("===WEB診断再スタート失敗");
 		}
 
 	}

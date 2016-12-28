@@ -60,14 +60,14 @@ public class Moppy_Click_Coin  extends Pc_Moppy {
 
 		// モッピー画面のタブ名を取得する
 		String original = driver.getWindowHandle();
-		for(int i = 0; i < 100; i++){
-			// モッピー画面のタブ名を取得する
-			String originalHandel = driver.getWindowHandle();
-			click(originalHandel);
-			// タブをクリックする
-			tab_close(driver,originalHandel);
-			point_count++;
-		}
+//		for(int i = 0; i < 100; i++){
+//			// モッピー画面のタブ名を取得する
+//			String originalHandel = driver.getWindowHandle();
+//			click(originalHandel);
+//			// タブをクリックする
+//			tab_close(driver,originalHandel);
+//			point_count++;
+//		}
 		one_click(original);
 		driver.quit();
 		return point_count/10;

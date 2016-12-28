@@ -32,6 +32,8 @@ public class PointConstants {
 	public static final String OSAIFU = "お財布";
 	/** 【ハピタス】 */
 	public static final String HAPITAS = "ハピタス";
+	/** 【CMサイト】 */
+	public static final String CMSITE = "CMサイト";
 
 	/** 【クマクマ総選挙】 */
 	public static final String ELECTION = "クマクマ総選挙";
@@ -43,6 +45,8 @@ public class PointConstants {
 	public static final String MANGA_ENQUETE = "漫画アンケート";
 	/** 【WEB診断】 */
 	public static final String WEB_SHINDAN = "WEB診断";
+	/** 【ADリサーチ】 */
+	public static final String AD_RESEARCH = "ADリサーチ";
 
 
 

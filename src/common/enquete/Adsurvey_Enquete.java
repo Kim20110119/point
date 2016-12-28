@@ -43,7 +43,7 @@ public class Adsurvey_Enquete {
 		// 「フレーム」
 		driver.get(frame_url);
 		// 「次へ」ボタン
-		driver.findElement(By.className("btn_regular")).click();
+		next(driver);
 		// 0.5秒待ち
 		Thread.sleep(500);
 		// 「性別」（男）
@@ -95,15 +95,16 @@ public class Adsurvey_Enquete {
 				continue;
 			} else {
 				int select_count = driver.findElement(By.className("answer")).findElements(By.tagName("select")).size();
-				if(select_count > 0){
+				if (select_count > 0) {
 					// 「セレクト」
-					Select anser_select = new Select(driver.findElement(By.className("answer")).findElements(By.tagName("select")).get(0));
+					Select anser_select = new Select(
+							driver.findElement(By.className("answer")).findElements(By.tagName("select")).get(0));
 					anser_select.selectByIndex(2);
 					// 「次へ」ボタン
 					driver.findElement(By.className(C_BTN)).click();
 					// 0.5秒待ち
 					Thread.sleep(1000);
-				}else{
+				} else {
 					// 「次へ」ボタン
 					driver.findElement(By.className(C_BTN_R)).click();
 				}
@@ -127,7 +128,7 @@ public class Adsurvey_Enquete {
 	 * @author kimC
 	 *
 	 */
-	public static Boolean execute_restart(WebDriver driver){
+	public static Boolean execute_restart(WebDriver driver) {
 		try {
 			// 「次へ」ボタン
 			next(driver);
@@ -156,16 +157,18 @@ public class Adsurvey_Enquete {
 					Thread.sleep(1000);
 					continue;
 				} else {
-					int select_count = driver.findElement(By.className("answer")).findElements(By.tagName("select")).size();
-					if(select_count > 0){
+					int select_count = driver.findElement(By.className("answer")).findElements(By.tagName("select"))
+							.size();
+					if (select_count > 0) {
 						// 「セレクト」
-						Select anser_select = new Select(driver.findElement(By.className("answer")).findElements(By.tagName("select")).get(0));
+						Select anser_select = new Select(
+								driver.findElement(By.className("answer")).findElements(By.tagName("select")).get(0));
 						anser_select.selectByIndex(2);
 						// 「次へ」ボタン
 						driver.findElement(By.className(C_BTN)).click();
 						// 0.5秒待ち
 						Thread.sleep(1000);
-					}else{
+					} else {
 						// 「次へ」ボタン
 						driver.findElement(By.className(C_BTN_R)).click();
 					}
@@ -193,11 +196,12 @@ public class Adsurvey_Enquete {
 	 * @author kimC
 	 *
 	 */
-	public static void next(WebDriver driver){
+	public static void next(WebDriver driver) {
 		try {
 			// 「次へ」ボタン
 			driver.findElement(By.className("btn_regular")).click();
 		} catch (Exception e) {
+			driver.findElement(By.className(C_BTN)).click();
 		}
 
 	}

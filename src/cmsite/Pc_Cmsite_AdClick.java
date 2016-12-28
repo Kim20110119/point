@@ -1,4 +1,4 @@
-package moppy;
+package cmsite;
 
 import static common.Common.*;
 
@@ -16,7 +16,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
  * @author kimC
  *
  */
-public class Pc_Moppy_AdClick {
+public class Pc_Cmsite_AdClick {
 
 	/**
 	 * =====================================================================================================================
@@ -42,7 +42,7 @@ public class Pc_Moppy_AdClick {
 				WebDriver driver = new ChromeDriver(option);
 				excute(driver);
 				// 5秒待ち
-				Thread.sleep(5000);
+				Thread.sleep(2000);
 				driver.quit();
 			}
 
@@ -62,7 +62,7 @@ public class Pc_Moppy_AdClick {
 	 */
 	public static void excute(WebDriver driver) {
 		try{
-			driver.get("http://moppy.jp/top.php?xGVJe1dd");
+			driver.get("https://www.cmsite.co.jp/userreg.html?kimC");
 		}catch (Exception e){
 		}
 	}
