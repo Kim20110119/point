@@ -77,7 +77,7 @@ public class PointConstants {
 	public static final String SP_GENDAMA_FOREST_URL = "http://www.gendama.jp/sp/forest";
 
 	/** 【げん玉】:ログインメールアドレス */
-	public static final String GENDAMA_LOGIN_MAIL = "kimyea001@hotmail.com";
+	public static final String GENDAMA_LOGIN_MAIL = "jjz323@hotmail.com";
 	/** 【げん玉】:ログインパスワード */
 	public static final String GENDAMA_LOGIN_PASSWORD = "20110119Jjz";
 	/** 【げん玉】:モリモリ診断URL */

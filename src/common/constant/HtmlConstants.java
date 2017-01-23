@@ -41,12 +41,20 @@ public class HtmlConstants {
 	public static final String T_SELECT = "select";
 	/** 「input」 */
 	public static final String T_INPUT = "input";
+	/** 「table」 */
+	public static final String T_TABLE = "table";
+	/** 「tr」 */
+	public static final String T_TR = "tr";
 	/** 「td」 */
 	public static final String T_TD = "td";
+	/** 「p」 */
+	public static final String T_P = "P";
 
 	// ==================================================================================================================
 	// Attribute
 	// ==================================================================================================================
+	/** 「alt」 */
+	public static final String A_ALT = "alt";
 	/** 「href」 */
 	public static final String A_HREF = "href";
 	/** 「src」 */
@@ -73,6 +81,10 @@ public class HtmlConstants {
 	public static final String V_PASS = "pass";
 	/** 「submit」 */
 	public static final String V_SUBMIT = "submit";
+	/** 「checkbox」 */
+	public static final String V_CHECKBOX = "checkbox";
+	/** 「radio」 */
+	public static final String V_RADIO = "radio";
 
 	// ==================================================================================================================
 	// Choice

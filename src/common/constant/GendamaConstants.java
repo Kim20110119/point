@@ -39,7 +39,7 @@ public class GendamaConstants {
 	public static final String SP_FOREST_URL = "http://www.gendama.jp/sp/forest";
 
 	/** 【PC】：ログインメールアドレス */
-	public static final String PC_LOGIN_MAIL = "kimyea001@hotmail.com";
+	public static final String PC_LOGIN_MAIL = "kimkeitetsu@gmail.com";
 	/** 【PC】：ログインパスワード */
 	public static final String PC_LOGIN_PASSWORD = "20110119Jjz";
 	/** 【PC】：モリモリ診断URL */
