@@ -27,4 +27,7 @@ public class ChobirichConstants {
 	public static final String PC_LOGIN_MAIL = "2973007";
 	/** 【PC】：ログインパスワード */
 	public static final String PC_LOGIN_PASSWORD = "20110119Jjz";
+
+	/** 【SP】：CMくじURL */
+	public static final String SP_CM_URL = "https://www.chobirich.com//ad_details/member_only/1030384/";
 }

@@ -43,7 +43,7 @@ public class Adsurvey_Enquete {
 		// 「フレーム」
 		driver.get(frame_url);
 		// 0.5秒待ち
-		Thread.sleep(10000);
+		Thread.sleep(500);
 		// 「次へ」ボタン
 		next(driver);
 		// 0.5秒待ち
