@@ -27,6 +27,9 @@ public class CommonConstants {
 	public static final String MRGA_URL = ".*http://mrga.service-navi.jp/.*";
 	/** COLUMNアンケートURL */
 	public static final String COLUMN_URL = ".*http://column-enquete.com/.*";
+	/** GQXアンケートURL */
+	public static final String GQX_URL = ".*http://gqx.hikikagami.com/.*";
+
 
 	// ==================================================================================================================
 	// 【文字列】

@@ -46,7 +46,7 @@ public class Pointi_WebInterview extends Pc_Pointi {
 	 */
 	public Integer execute() {
 		 // 「ポイントインカム」WEBインタビューリンクを取得する
-        String interview_link = driver.findElements(getByClass(C_C)).get(0).findElement(By.tagName(T_A)).getAttribute(A_HREF);
+        String interview_link = driver.findElements(getByClass(C_C)).get(1).findElement(By.tagName(T_A)).getAttribute(A_HREF);
         // 「ポイントインカム」WEBインタビュー一覧画面へ遷移する
         driver.get(interview_link);
         // 0.5秒待ち

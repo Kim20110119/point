@@ -25,14 +25,14 @@ public class GendamaConstants {
 	/** 【PC】：CMくじURL */
 	public static final String PC_CM_URL = "http://www.gendama.jp/cl/?id=138368&u=1";
 	/** 【PC】：WEB診断URL */
-	public static final String PC_WEB_SHINDAN_URL = "http://shindan-apps.net/gendama?uid=6278959";
+	public static final String PC_WEB_SHINDAN_URL = "http://shindan-apps.net/gendama?uid=6285120";
 	/** 【PC】：モリゲーURL */
 	public static final String PC_MRGA_SERVICE_URL = "http://mrga.service-navi.jp/collection";
 	/** 【PC】：モリモリクイズURL */
 	public static final String PC_MRGA_QUIZ_URL = "http://mrga.service-navi.jp/login/redirectqp";
 
 	/** 【SP】CMくじURL */
-	public static final String SP_CM_URL = "http://www.gendama.jp/cl/?id=134510&rt=s&u=6278067";
+	public static final String SP_CM_URL = "http://www.gendama.jp/cl/?id=134510&rt=s&u=6285120";
 	/** 【SP】WEB診断URL */
 	public static final String SP_WEB_SHINDAN_URL = "http://www.gendama.jp/sp/more_point";
 	/** 【SP】ポイントの森URL */
@@ -41,7 +41,7 @@ public class GendamaConstants {
 	/** 【PC】：ログインメールアドレス */
 	public static final String PC_LOGIN_MAIL = "kimkeitetsu@gmail.com";
 	/** 【PC】：ログインパスワード */
-	public static final String PC_LOGIN_PASSWORD = "20110119Jjz";
+	public static final String PC_LOGIN_PASSWORD = "20160801Kim";
 	/** 【PC】：モリモリ診断URL */
 	public static final String PC_ADSURVEY_URL = ".*http://adsurvey.media-ad.jp/.*";
 	/** 【PC】：モリモリMRGAアンケートURL */

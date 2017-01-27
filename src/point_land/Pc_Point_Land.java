@@ -31,7 +31,7 @@ public class Pc_Point_Land extends Point {
 
 	/**
 	 * =================================================================================================================
-	 * タブを閉じる
+	 * タブを取得する
 	 * =================================================================================================================
 	 *
 	 * @param WebDriver
@@ -57,6 +57,35 @@ public class Pc_Point_Land extends Point {
 			return tab_url;
 		} catch (Exception e) {
 			return tab_url;
+		}
+
+	}
+
+	/**
+	 * =================================================================================================================
+	 * タブを閉じる
+	 * =================================================================================================================
+	 *
+	 * @param WebDriver
+	 *            driver
+	 * @param String
+	 *            originalHandle
+	 * @param By
+	 *            by
+	 *
+	 * @author kimC
+	 *
+	 */
+	public static void tab_close(WebDriver driver, String originalHandle) {
+		try {
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(originalHandle)) {
+					driver.switchTo().window(handle);
+					driver.close();
+				}
+			}
+			driver.switchTo().window(originalHandle);
+		} catch (Exception e) {
 		}
 
 	}

@@ -42,6 +42,8 @@ public class Adsurvey_Enquete {
 		String frame_url = driver.findElements(By.tagName(T_IFRAME)).get(INT_0).getAttribute(A_SRC);
 		// 「フレーム」
 		driver.get(frame_url);
+		// 0.5秒待ち
+		Thread.sleep(10000);
 		// 「次へ」ボタン
 		next(driver);
 		// 0.5秒待ち

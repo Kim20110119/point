@@ -1,12 +1,16 @@
 package chance.enquete;
 
 import static common.constant.ChanceConstants.*;
+import static common.constant.CommonConstants.*;
 import static common.constant.HtmlConstants.*;
 
 import org.openqa.selenium.By;
 
 import chance.Pc_Chance;
+import common.enquete.Adsurvey_Enquete;
+import common.enquete.Column_Enquete;
 import common.enquete.Hikikagami_Enquete;
+import common.enquete.Mini_Survey_Enquete;
 
 /**
  * =====================================================================================================================
@@ -57,6 +61,15 @@ public class Chance_Enquete extends Pc_Chance {
 			enquete_url = driver.findElement(By.id(I_C_R_T)).findElements(By.tagName(T_A)).get(0)
 					.getAttribute(A_HREF);
 			driver.get(enquete_url);
+			String current_url = driver.getCurrentUrl();
+			if (current_url.matches(COLUMN_URL)) {
+				column_start();
+			} else if (current_url.matches(MINI_SURVEY_URL)) {
+				mini_start();
+			} else if (current_url.matches(GQX_URL)) {
+				start();
+			}else{
+			}
 			start();
 			// 「アンケート」
 			driver.get(PC_ENQUETE_URL);
@@ -81,6 +94,57 @@ public class Chance_Enquete extends Pc_Chance {
 			point_count += 5;
 		} catch (Exception e) {
 			System.out.println("【エラー】：アンケートスタート失敗");
+		}
+	}
+
+	/**
+	 * =================================================================================================================
+	 * MINIアンケートスタート
+	 * =================================================================================================================
+	 *
+	 * @author kimC
+	 *
+	 */
+	public void mini_start() {
+		try {
+			Mini_Survey_Enquete.execute(driver);
+			point_count += 5;
+		} catch (Exception e) {
+			System.out.println("【エラー】：MINIアンケートスタート失敗");
+		}
+	}
+
+	/**
+	 * =================================================================================================================
+	 * ADアンケートスタート
+	 * =================================================================================================================
+	 *
+	 * @author kimC
+	 *
+	 */
+	public void ad_start() {
+		try {
+			Adsurvey_Enquete.execute(driver);
+			point_count += 5;
+		} catch (Exception e) {
+			System.out.println("【エラー】：ADアンケートスタート失敗");
+		}
+	}
+
+	/**
+	 * =================================================================================================================
+	 * COLUMNアンケートスタート
+	 * =================================================================================================================
+	 *
+	 * @author kimC
+	 *
+	 */
+	public void column_start() {
+		try {
+			Column_Enquete.execute(driver);
+			point_count += 5;
+		} catch (Exception e) {
+			System.out.println("【エラー】：COLUMNアンケートスタート失敗");
 		}
 	}
 }

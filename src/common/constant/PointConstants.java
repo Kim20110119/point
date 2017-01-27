@@ -63,23 +63,23 @@ public class PointConstants {
 	/** 【げん玉】:CMくじURL */
 	public static final String GENDAMA_CM_URL = "http://www.gendama.jp/cl/?id=138368&u=1";
 	/** 【げん玉】:WEB診断URL */
-	public static final String GENDAMA_WEB_SHINDAN_URL = "http://shindan-apps.net/gendama?uid=6278959";
+	public static final String GENDAMA_WEB_SHINDAN_URL = "http://shindan-apps.net/gendama?uid=6285120";
 	/** 【げん玉】:モリゲーURL */
 	public static final String GENDAMA_MRGA_SERVICE_URL = "http://mrga.service-navi.jp/collection";
 	/** 【げん玉】:モリモリクイズURL */
 	public static final String GENDAMA_MRGA_QUIZ_URL = "http://mrga.service-navi.jp/login/redirectqp";
 
 	/** 【げん玉】(携帯):CMくじURL */
-	public static final String SP_GENDAMA_CM_URL = "http://www.gendama.jp/cl/?id=134510&rt=s&u=6278067";
+	public static final String SP_GENDAMA_CM_URL = "http://www.gendama.jp/cl/?id=134510&rt=s&u=6285120";
 	/** 【げん玉】(携帯):WEB診断URL */
 	public static final String SP_GENDAMA_WEB_SHINDAN_URL = "http://www.gendama.jp/sp/more_point";
 	/** 【げん玉】(携帯):ポイントの森URL */
 	public static final String SP_GENDAMA_FOREST_URL = "http://www.gendama.jp/sp/forest";
 
 	/** 【げん玉】:ログインメールアドレス */
-	public static final String GENDAMA_LOGIN_MAIL = "jjz323@hotmail.com";
+	public static final String GENDAMA_LOGIN_MAIL = "kimkeitetsu@gmail.com";
 	/** 【げん玉】:ログインパスワード */
-	public static final String GENDAMA_LOGIN_PASSWORD = "20110119Jjz";
+	public static final String GENDAMA_LOGIN_PASSWORD = "20160801Kim";
 	/** 【げん玉】:モリモリ診断URL */
 	public static final String GENDAMA_ADSURVEY_URL = ".*http://adsurvey.media-ad.jp/.*";
 	/** 【げん玉】:モリモリMRGAアンケートURL */
@@ -99,9 +99,9 @@ public class PointConstants {
 	public static final String REALWORLD_CM_URL = "http://www.gendama.jp/cl/?id=231331";
 
 	/** 【リアルワールド】:ログインメールアドレス */
-	public static final String REALWORLD_LOGIN_MAIL = "kimyea001@hotmail.com";
+	public static final String REALWORLD_LOGIN_MAIL = "kimkeitetsu@gmail.com";
 	/** 【リアルワールド】:ログインパスワード */
-	public static final String REALWORLD_LOGIN_PASSWORD = "20110119Jjz";
+	public static final String REALWORLD_LOGIN_PASSWORD = "20160801Kim";
 
 	// ==================================================================================================================
 	// ==================================================================================================================
