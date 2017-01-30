@@ -70,7 +70,6 @@ public class Chance_Enquete extends Pc_Chance {
 				start();
 			}else{
 			}
-			start();
 			// 「アンケート」
 			driver.get(PC_ENQUETE_URL);
 		}

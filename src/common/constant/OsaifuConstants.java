@@ -22,7 +22,7 @@ public class OsaifuConstants {
 	/** 【PC】:ログインURL */
 	public static final String PC_LOGIN_URL = "https://osaifu.com/contents/login/";
 	/** 【PC】:ゲームコンテンツURL */
-	public static final String PC_GAMECONTENTS_URL = "http://pc.moppy.jp/gamecontents/";
+	public static final String PC_GAMECONTENTS_URL = "http://osaifu.com/contents/coinland/";
 	/** 【PC】:毎日クリックコインURL */
 	public static final String PC_CLICK_COIN_URL = "http://pc.moppy.jp/cc/";
 	/** 【PC】:ポイントリサーチURL */

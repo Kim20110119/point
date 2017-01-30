@@ -1,30 +1,29 @@
-package gendama.sp;
+package osaifu.sp;
 
 import static common.constant.CommonConstants.*;
-import static common.constant.GendamaConstants.*;
 import static common.constant.HtmlConstants.*;
+import static common.constant.OsaifuConstants.*;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
-import common.enquete.Sp_Adsurvey_Enquete;
-import gendama.Sp_Gendama;
+import common.enquete.Adsurvey_Enquete;
+import osaifu.Sp_Osaifu;
 
 /**
  * =====================================================================================================================
- * げん玉(携帯)：クマクマ調査団
+ * 【お財布】：クマクマ調査団(携帯)
  * =====================================================================================================================
  *
  * @author kimC
  *
  */
-public class Sp_Gendama_Reados extends Sp_Gendama {
+public class Sp_Osaifu_Reados extends Sp_Osaifu {
 
 	/** 「daily-points」 */
-	private static final String C_D_P = "daily-chance__list";
-	/** 「survey_list」 */
+	private static final String C_S_R = "sp_reado";
+	/** 「enquete_box」 */
 	private static final String I_S_L = "survey_list";
-
 	/** 「クマクマ調査団URL」 */
 	String reados_url;
 	/** 「獲得済みポイント」 */
@@ -33,13 +32,13 @@ public class Sp_Gendama_Reados extends Sp_Gendama {
 	/**
 	 * コンストラクタ
 	 */
-	public Sp_Gendama_Reados(){
+	public Sp_Osaifu_Reados(){
 		// 「CMくじ」
-		driver.get(SP_CM_URL);
+		driver.get(PC_CM_URL);
 	}
 	/**
 	 * =================================================================================================================
-	 * (携帯)クマクマ調査団メイン処理
+	 * クマクマ調査団メイン処理
 	 * =================================================================================================================
 	 *
 	 * @param WebDriver
@@ -52,7 +51,7 @@ public class Sp_Gendama_Reados extends Sp_Gendama {
 	 */
 	public Integer execute() {
 		// 「クマクマ調査団URL」
-		reados_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_2).getAttribute(A_HREF);
+		reados_url = driver.findElement(By.className(C_S_R)).findElement(By.tagName(T_A)).getAttribute(A_HREF);
 		if(StringUtils.isNotEmpty(reados_url)){
 			// 「クマクマ調査団画面」
 			driver.get(reados_url);
@@ -60,7 +59,6 @@ public class Sp_Gendama_Reados extends Sp_Gendama {
 			int enquete_count = driver.findElement(By.id(I_S_L)).findElements(By.tagName(T_A)).size();
 			// 「獲得ポイント」
 			for (int i = 0; i < enquete_count; i++) {
-
 				// 調査スタート
 				start();
 				// 「クマクマ調査団画面」
@@ -89,9 +87,8 @@ public class Sp_Gendama_Reados extends Sp_Gendama {
 			if(StringUtils.isNotEmpty(enquete_url)){
 				// 「該当するAdsurveyアンケート」へ遷移する
 				driver.get(enquete_url);
-				sleep(10000);
 				// 「Adsurveyアンケート回答」
-				if (Sp_Adsurvey_Enquete.execute(driver)) {
+				if (Adsurvey_Enquete.execute(driver)) {
 					point_count += 10;
 				}
 			}else{
@@ -100,6 +97,7 @@ public class Sp_Gendama_Reados extends Sp_Gendama {
 
 		} catch (Exception e) {
 			System.out.println("【エラー】：Adsurveyアンケート回答失敗!");
+			Adsurvey_Enquete.execute_restart(driver);
 		}
 	}
 }

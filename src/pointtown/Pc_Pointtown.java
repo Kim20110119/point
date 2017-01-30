@@ -25,6 +25,7 @@ public class Pc_Pointtown extends Point {
 		driver.findElement(By.xpath("//input[@alt='ログイン']")).click();
 		// 【ポイントタウン】：回答
 		driver.findElement(By.name("answer")).sendKeys("めいこ");
+		sleep(5000);
 		// 【ポイントタウン】：送信ボタン
 		driver.findElement(By.xpath("//input[@alt='送信']")).click();
 	}
