@@ -116,7 +116,7 @@ public class PointConstants {
 	/** 【ポイントインカム】:リサーチURL */
 	public static final String POINTI_RESEARCH_URL = "http://pointi.jp/contents/research/";
 	/** 【ポイントインカム】:WEB診断URL */
-	public static final String POINTI_WEB_SHINDAN_URL = "http://shindan-apps.net/pointi?uid=38800457205gf69hj2rpgrofhp8v";
+	public static final String POINTI_WEB_SHINDAN_URL = "http://shindan-apps.net/point-income?uid=8880115231qt9uhmh1dnpq2lcfjs";
 	/** 【ポイントインカム】:プライス調査隊URL */
 	public static final String POINTI_PRICES_URL = "http://pointi.jp/api/prices.php";
 
