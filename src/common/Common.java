@@ -351,7 +351,6 @@ public class Common {
 		list.add("https://pointmall.prcm.jp/item/redirect/327");
 		list.add("https://pointmall.prcm.jp/item/redirect/326");
 		list.add("https://pointmall.prcm.jp/item/redirect/325");
-		list.add("https://pointmall.prcm.jp/item/redirect/324");
 		list.add("https://pointmall.prcm.jp/item/redirect/323");
 		list.add("https://pointmall.prcm.jp/item/redirect/322");
 		list.add("https://pointmall.prcm.jp/item/redirect/320");
@@ -385,8 +384,6 @@ public class Common {
 		list.add("https://pointmall.prcm.jp/item/redirect/4962");
 		list.add("https://pointmall.prcm.jp/item/redirect/4963");
 		list.add("https://pointmall.prcm.jp/item/redirect/272");
-
-
 		return list;
 	}
 
