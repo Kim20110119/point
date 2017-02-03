@@ -1,10 +1,11 @@
-package pointmall.shindan;
+package mydoki.shindan;
 
-import static common.Common.*;
-import static common.constant.PointmailConstants.*;
+import static common.constant.HtmlConstants.*;
+
+import org.openqa.selenium.By;
 
 import common.shindan.WebShindan;
-import pointmall.Pc_Pointmail;
+import mydoki.Pc_Mydoki;
 
 /**
  * =====================================================================================================================
@@ -14,7 +15,7 @@ import pointmall.Pc_Pointmail;
  * @author kimC
  *
  */
-public class Pointmail_Shindan  extends Pc_Pointmail {
+public class Mydoki_Shindan  extends Pc_Mydoki {
 	/** 「クマクマ総選挙URL」 */
 	String election_url;
 	/** 「獲得ポイント」 */
@@ -29,7 +30,7 @@ public class Pointmail_Shindan  extends Pc_Pointmail {
 	/**
 	 * コンストラクタ
 	 */
-	public Pointmail_Shindan() {
+	public Mydoki_Shindan() {
 	}
 
 	/**
@@ -43,21 +44,29 @@ public class Pointmail_Shindan  extends Pc_Pointmail {
 	 *
 	 */
 	public Integer execute() {
-		for(int i = start; i < getPointmailAppIdList().size(); i++){
-			String url = getPointmailAppIdList().get(i);
-			driver.get(url);
+		String app_url = driver.findElement(By.className("navi-menu-appli")).getAttribute(A_HREF);
+		// 1秒待ち
+		sleep(1000);
+		driver.get(app_url);
+		// 1秒待ち
+		sleep(1000);
+		driver.findElement(By.className("clearfix")).findElements(By.tagName(T_LI)).get(1).findElement(By.tagName(T_A)).click();
+		for(int i = 0; i < 200; i++){
+			// 1秒待ち
+			sleep(1000);
+			driver.findElement(By.className("ow-item-list")).findElements(By.tagName(T_LI)).get(i).click();
+			driver.findElements(By.className("btn-site")).get(0).click();
 			// 0.5秒待ち
 			sleep(500);
-			// 診断URL
-			String shindan_url = driver.getCurrentUrl();
-			if(shindan_url.matches(STR_SHINDAN_URL)){
-				if(start()){
-					point_count += 10;
-				}else{
-					restart();
-				}
+			if(start()){
+				point_count += 10;
+			}else{
+				restart();
 			}
-			System.out.println("【"+i+"】");
+			// 0.5秒待ち
+			sleep(5000);
+			driver.get(app_url);
+			driver.findElement(By.className("clearfix")).findElements(By.tagName(T_LI)).get(1).findElement(By.tagName(T_A)).click();
 		}
 		driver.quit();
 		return point_count;
