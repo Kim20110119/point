@@ -1,22 +1,20 @@
-package pointi.shindan;
+package pointmall.shindan;
 
-import static common.constant.HtmlConstants.*;
-import static common.constant.PointConstants.*;
-
-import org.openqa.selenium.By;
+import static common.Common.*;
+import static common.constant.PointmailConstants.*;
 
 import common.shindan.WebShindan;
-import pointi.Pc_Pointi;
+import pointmall.Pc_Pointmail;
 
 /**
  * =====================================================================================================================
- * ポイントインカム：WEB診断
+ * プリぽん：WEB診断
  * =====================================================================================================================
  *
  * @author kimC
  *
  */
-public class Pointi_Shindan  extends Pc_Pointi {
+public class Pointmail_Shindan  extends Pc_Pointmail {
 	/** 「クマクマ総選挙URL」 */
 	String election_url;
 	/** 「獲得ポイント」 */
@@ -31,9 +29,7 @@ public class Pointi_Shindan  extends Pc_Pointi {
 	/**
 	 * コンストラクタ
 	 */
-	public Pointi_Shindan() {
-		// 「WEB診断」
-		driver.get(POINTI_WEB_SHINDAN_URL);
+	public Pointmail_Shindan() {
 	}
 
 	/**
@@ -47,20 +43,20 @@ public class Pointi_Shindan  extends Pc_Pointi {
 	 *
 	 */
 	public Integer execute() {
-		for(int i = start; i < end; i++){
+		for(int i = start; i < getPointmailAppIdList().size(); i++){
+			String url = getPointmailAppIdList().get(i);
+			driver.get(url);
 			// 0.5秒待ち
 			sleep(500);
 			// 診断URL
-			String sindan_url = driver.findElements(By.xpath("//a[@role='button']")).get(i).getAttribute(A_HREF);
-			// WEB診断
-			driver.get(sindan_url);
-			if(start()){
-				point_count += 10;
-			}else{
-				restart();
+			String shindan_url = driver.getCurrentUrl();
+			if(shindan_url.matches(STR_SHINDAN_URL)){
+				if(start()){
+					point_count += 10;
+				}else{
+					restart();
+				}
 			}
-		// 「WEB診断」
-		driver.get(POINTI_WEB_SHINDAN_URL);
 		}
 		driver.quit();
 		return point_count;

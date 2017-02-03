@@ -25,9 +25,9 @@ public class Sp_Gendama_Shindan extends Sp_Gendama {
 	/** 「再スタートフラグ」 */
 	Boolean restart_flag = Boolean.FALSE;
 	/** 「WEB診断開始番号」 */
-	int start = 311055;
+	int start = 336140;
 	/** 「WEB診断終了番号」 */
-	int end = 311162;
+	int end = 336160;
 
 	/**
 	 * コンストラクタ
@@ -49,12 +49,12 @@ public class Sp_Gendama_Shindan extends Sp_Gendama {
 	 */
 	public Integer execute() {
 
-		for (int i = start; i < end; i++) {
+		for (int i = 0; i < getNumberList().size(); i++) {
 
 			// 0.5秒待ち
 			sleep(500);
 			// 診断URL
-			election_url = "http://www.gendama.jp/sp/client_detail?cd_client="+i+"&rt=s";
+			election_url = "http://www.gendama.jp/sp/client_detail?cd_client="+getNumberList().get(i)+"&rt=s&frame=sphivemallrecommend";
 			// WEB診断
 			driver.get(election_url);
 			String str_shindan = driver.findElement(By.className("service_condition")).getText();

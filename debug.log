@@ -1,0 +1,10 @@
+[1227/154344:ERROR:process_reader_win.cc(142)] SuspendThread: アクセスが拒否されました。 (0x5)
+[1227/154344:ERROR:exception_snapshot_win.cc(87)] thread ID 17188 not found in process
+[1227/154344:WARNING:crash_report_exception_handler.cc(61)] ProcessSnapshotWin::Initialize failed
+[1227/154345:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess: 既存のプロセスにアクセスしようとしました。  (0xc000010a)
+[0130/161718:ERROR:process_info.cc(330)] VirtualQueryEx: アクセスが拒否されました。 (0x5)
+[0130/161718:ERROR:process_info.cc(547)] ReadMemoryInfo failed
+[0130/161718:ERROR:process_reader_win.cc(233)] ReadMemory at 0x7fef19af0c0 of 12 bytes failed: ReadProcessMemory 要求または WriteProcessMemory 要求の一部だけを完了しました。 (0x12B)
+[0130/161718:WARNING:process_snapshot_win.cc(68)] ReadMemory ExceptionInformation failed
+[0130/161718:WARNING:crash_report_exception_handler.cc(61)] ProcessSnapshotWin::Initialize failed
+[0130/161718:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess: 既存のプロセスにアクセスしようとしました。  (0xc000010a)

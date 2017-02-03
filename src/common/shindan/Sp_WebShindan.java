@@ -46,6 +46,8 @@ public class Sp_WebShindan {
 		driver.findElement(By.className(C_SUBMINT)).click();
 		// 2秒待ち
 		Thread.sleep(2000);
+		// スクロール
+		scroll(driver);
 		// 「次へ」
 		driver.findElement(By.className(C_SUBMINT)).click();
 		// 1秒待ち

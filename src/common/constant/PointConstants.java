@@ -122,9 +122,9 @@ public class PointConstants {
 
 	// ログイン情報
 	/** 【ポイントインカム】:ログインメールアドレス */
-	public static final String POINTI_LOGIN_MAIL = "kim20110119@hotmail.com";
+	public static final String POINTI_LOGIN_MAIL = "kimkeitetsu@gmail.com";
 	/** 【ポイントインカム】:ログインパスワード */
-	public static final String POINTI_LOGIN_PASSWORD = "20110119Jjz";
+	public static final String POINTI_LOGIN_PASSWORD = "20160801Kim";
 
 	// ==================================================================================================================
 	// 【ポイントランド】

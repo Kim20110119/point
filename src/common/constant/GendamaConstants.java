@@ -33,6 +33,8 @@ public class GendamaConstants {
 
 	/** 【SP】CMくじURL */
 	public static final String SP_CM_URL = "http://www.gendama.jp/cl/?id=134510&rt=s&u=6285120";
+	/** 【SP】アンケートURL */
+	public static final String SP_ENQUETE_URL = "http://www.gendama.jp/sp/adcontent";
 	/** 【SP】WEB診断URL */
 	public static final String SP_WEB_SHINDAN_URL = "http://www.gendama.jp/sp/more_point";
 	/** 【SP】ポイントの森URL */

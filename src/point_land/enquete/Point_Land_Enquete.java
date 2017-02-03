@@ -3,8 +3,6 @@ package point_land.enquete;
 import static common.constant.HtmlConstants.*;
 import static common.constant.PointLandConstants.*;
 
-import org.openqa.selenium.WebDriver;
-
 import common.enquete.Enta_Research;
 import point_land.Pc_Point_Land;
 
@@ -51,7 +49,7 @@ public class Point_Land_Enquete extends Pc_Point_Land {
 		// 「獲得ポイント」
 		for (int i = 0; i < enquete_count; i++) {
 			driver.findElements(getByXpath(T_INPUT, A_VALUE, "回答する")).get(i).click();
-			urlByTab(driver, originalHandel);
+			urlByTab(originalHandel);
 			// 調査スタート
 			start();
 		}
@@ -95,11 +93,12 @@ public class Point_Land_Enquete extends Pc_Point_Land {
 	 * @author kimC
 	 *
 	 */
-	public static void urlByTab(WebDriver driver, String originalHandle) {
+	public void urlByTab(String originalHandle) {
 		try {
 			for (String handle : driver.getWindowHandles()) {
 				if (!handle.equals(originalHandle)) {
 					driver.switchTo().window(handle);
+					driver.get(driver.getCurrentUrl());
 				}
 			}
 		} catch (Exception e) {

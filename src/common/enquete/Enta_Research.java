@@ -38,7 +38,7 @@ public class Enta_Research {
 		// 0.5秒待ち
 		Thread.sleep(500);
 		// 「アンケートへ進む」
-		driver.findElement(By.xpath("//img[@src='../images/bt_next2.png']")).click();
+		driver.findElement(By.className("nextpage_navi")).findElement(By.tagName("a")).click();
 		// 広告を閉じる
 		ad_close(driver);
 		// １問目

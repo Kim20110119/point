@@ -24,9 +24,9 @@ public class Gendama_Shindan  extends Pc_Gendama {
 	/** 「再スタートフラグ」 */
 	Boolean restart_flag = Boolean.FALSE;
 	/** 「WEB診断開始番号」 */
-	int start = 48;
+	int start = 0;
 	/** 「WEB診断終了番号」 */
-	int end = 49;
+	int end = 11;
 
 	/**
 	 * コンストラクタ

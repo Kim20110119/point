@@ -34,6 +34,8 @@ public class Sp_Gendama_Reados extends Sp_Gendama {
 	 * コンストラクタ
 	 */
 	public Sp_Gendama_Reados(){
+		// 2秒待ち
+		sleep(2000);
 		// 「CMくじ」
 		driver.get(SP_CM_URL);
 	}
