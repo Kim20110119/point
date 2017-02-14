@@ -29,6 +29,12 @@ public class Sp_Moppy_Reados extends Sp_Moppy {
 	String reados_url;
 	/** 「獲得済みポイント」 */
 	int point_count = 0;
+	/** 「アンケート件数」 */
+	int enquete_count = 0;
+	/** 開始Index */
+	int start = 0;
+	/** 終了Index */
+	int end = 10;
 
 	/**
 	 * コンストラクタ
@@ -57,9 +63,12 @@ public class Sp_Moppy_Reados extends Sp_Moppy {
 			// 「クマクマ調査団画面」
 			driver.get(reados_url);
 			// アンケート件数
-			int enquete_count = driver.findElement(By.id(I_S_L)).findElements(By.tagName(T_A)).size();
-			// 「獲得ポイント」
-			for (int i = 0; i < enquete_count; i++) {
+			enquete_count = driver.findElement(By.id(I_S_L)).findElements(By.tagName(T_A)).size();
+			if(enquete_count < end){
+				end = enquete_count;
+			}
+			// 「クマクマ調査団」回答処理
+			for (int i = start; i < end; i++) {
 				// 調査スタート
 				start();
 				// 「クマクマ調査団画面」

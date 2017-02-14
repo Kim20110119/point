@@ -28,8 +28,6 @@ public class Pointi_WebInterview extends Pc_Pointi {
 	 * コンストラクタ
 	 */
 	public Pointi_WebInterview(){
-		// 「WEBインタビュー」
-		driver.get(POINTI_RESEARCH_URL);
 	}
 	/**
 	 * =================================================================================================================
@@ -45,21 +43,30 @@ public class Pointi_WebInterview extends Pc_Pointi {
 	 *
 	 */
 	public Integer execute() {
-		 // 「ポイントインカム」WEBインタビューリンクを取得する
-        String interview_link = driver.findElements(getByClass(C_C)).get(0).findElement(By.tagName(T_A)).getAttribute(A_HREF);
-        // 「ポイントインカム」WEBインタビュー一覧画面へ遷移する
-        driver.get(interview_link);
-        // 0.5秒待ち
-        sleep(500);
-        // WEBインタビュー件数を取得する
-        int interview_count = getSize(getByXpath(T_A, A_TARGET, V_BLANK));
-        for(int i = 0; i < interview_count; i++){
-        	start();
-        	// 「ポイントインカム」WEBインタビュー一覧画面へ遷移する
-            driver.get(interview_link);
-        }
-		driver.quit();
-		return point_count;
+		try{
+			// 「WEBインタビュー」
+			driver.get(POINTI_RESEARCH_URL);
+			// 「ポイントインカム」WEBインタビューリンクを取得する
+			String interview_link = driver.findElements(getByClass(C_C)).get(0).findElement(By.tagName(T_A)).getAttribute(A_HREF);
+			// 「ポイントインカム」WEBインタビュー一覧画面へ遷移する
+			driver.get(interview_link);
+			// 0.5秒待ち
+			sleep(500);
+			// WEBインタビュー件数を取得する
+			int interview_count = getSize(getByXpath(T_A, A_TARGET, V_BLANK));
+			for(int i = 0; i < interview_count; i++){
+				start();
+				// 「ポイントインカム」WEBインタビュー一覧画面へ遷移する
+				driver.get(interview_link);
+	        }
+			driver.quit();
+			return point_count;
+		}catch (Exception e){
+			driver.quit();
+			System.out.println("【エラー】：ポイントインカムクマクマ総選挙失敗");
+			return point_count;
+		}
+
 	}
 
 	/**

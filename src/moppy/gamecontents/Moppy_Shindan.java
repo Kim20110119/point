@@ -24,7 +24,7 @@ public class Moppy_Shindan  extends Pc_Moppy {
 	/** 「WEB診断開始番号」 */
 	int start = 0;
 	/** 「WEB診断終了番号」 */
-	int end = 11;
+	int end = 10;
 	/** 「WEB診断URL」 */
 	String sindan_url;
 

@@ -37,6 +37,10 @@ public class Moppy_Research extends Pc_Moppy {
 	Boolean restart_flag = Boolean.FALSE;
 	/** 「アンケート件数」 */
 	int enquete_count = 0;
+	/** 「開始番号」 */
+	int start = 0;
+	/** 「終了番号」 */
+	int end = 10;
 
 	/**
 	 * コンストラクタ
@@ -58,9 +62,13 @@ public class Moppy_Research extends Pc_Moppy {
 	 */
 	public Integer execute() {
 		try {
-			// 「モッピー」アンケート一覧画面へ遷移する
-			int enquete_count = getSize(getByClass(C_P_B_B));
-			for (int i = 0; i < enquete_count; i++) {
+			// 「モッピーリサーチ」件数
+			enquete_count = getSize(getByClass(C_P_B_B));
+			if(enquete_count < end){
+				end = enquete_count;
+			}
+			// 「モッピーリサーチ」回答処理
+			for (int i = start; i < end; i++) {
 				start();
 				// 「ポイントリサーチ」
 				driver.get(PC_POINT_RESEARCH_URL);
@@ -69,7 +77,7 @@ public class Moppy_Research extends Pc_Moppy {
 			return point_count;
 		} catch (Exception e) {
 			driver.quit();
-			System.out.println("【エラー】：ポイントリサーチ失敗");
+			System.out.println("【エラー】：モッピーポイントリサーチ失敗");
 			return point_count;
 		}
 	}

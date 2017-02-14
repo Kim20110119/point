@@ -54,7 +54,7 @@ public class Mydoki_Shindan  extends Pc_Mydoki {
 		for(int i = 0; i < 200; i++){
 			// 1秒待ち
 			sleep(1000);
-			driver.findElement(By.className("ow-item-list")).findElements(By.tagName(T_LI)).get(0).click();
+			driver.findElement(By.className("ow-item-list")).findElements(By.tagName(T_LI)).get(start).click();
 			driver.findElements(By.className("btn-site")).get(0).click();
 			// 0.5秒待ち
 			sleep(500);
@@ -89,6 +89,7 @@ public class Mydoki_Shindan  extends Pc_Mydoki {
 			point_count += 10;
 		} catch (Exception e) {
 			System.out.println("===WEB診断再スタート失敗");
+			start++;
 		}
 
 	}

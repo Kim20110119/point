@@ -26,14 +26,12 @@ public class Pointi_Shindan  extends Pc_Pointi {
 	/** 「WEB診断開始番号」 */
 	int start = 0;
 	/** 「WEB診断終了番号」 */
-	int end = 200;
+	int end = 3;
 
 	/**
 	 * コンストラクタ
 	 */
 	public Pointi_Shindan() {
-		// 「WEB診断」
-		driver.get(POINTI_WEB_SHINDAN_URL);
 	}
 
 	/**
@@ -47,23 +45,32 @@ public class Pointi_Shindan  extends Pc_Pointi {
 	 *
 	 */
 	public Integer execute() {
-		for(int i = start; i < end; i++){
-			// 0.5秒待ち
-			sleep(500);
-			// 診断URL
-			String sindan_url = driver.findElements(By.xpath("//a[@role='button']")).get(i).getAttribute(A_HREF);
-			// WEB診断
-			driver.get(sindan_url);
-			if(start()){
-				point_count += 10;
-			}else{
-				restart();
+		try{
+			// 「WEB診断」
+			driver.get(POINTI_WEB_SHINDAN_URL);
+			for(int i = start; i < end; i++){
+				// 0.5秒待ち
+				sleep(500);
+				// 診断URL
+				String sindan_url = driver.findElements(By.xpath("//a[@role='button']")).get(i).getAttribute(A_HREF);
+				// WEB診断
+				driver.get(sindan_url);
+				if(start()){
+					point_count += 10;
+				}else{
+					restart();
+				}
+			// 「WEB診断」
+			driver.get(POINTI_WEB_SHINDAN_URL);
 			}
-		// 「WEB診断」
-		driver.get(POINTI_WEB_SHINDAN_URL);
+			driver.quit();
+			return point_count;
+		}catch (Exception e){
+			driver.quit();
+			System.out.println("【エラー】：ポイントインカムWEB診断失敗");
+			return point_count;
 		}
-		driver.quit();
-		return point_count;
+
 	}
 
 	public Boolean start() {
