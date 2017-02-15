@@ -51,7 +51,7 @@ public class Dietnavi_Election extends Pc_Dietnavi {
 	public Integer execute() {
 		try {
 			// 「クマクマ総選挙URL」取得する
-			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_3)
+			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_0)
 					.getAttribute(A_HREF);
 			if (StringUtils.isNoneEmpty(election_url)) {
 				// 「クマクマ総選挙画面」

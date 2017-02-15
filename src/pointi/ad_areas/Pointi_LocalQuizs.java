@@ -45,8 +45,6 @@ public class Pointi_LocalQuizs extends Pc_Pointi {
 	 * コンストラクタ
 	 */
 	public Pointi_LocalQuizs() {
-		// 「CMくじ」
-		driver.get(POINTI_CF_URL);
 	}
 
 	/**
@@ -61,8 +59,10 @@ public class Pointi_LocalQuizs extends Pc_Pointi {
 	 */
 	public Integer execute() {
 		try{
+			// 「CMくじ」
+			driver.get(POINTI_CF_URL);
 			// 「ザ・ご当地検定URL」取得する
-			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(2).getAttribute(A_HREF);
+			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(4).getAttribute(A_HREF);
 			if (StringUtils.isNoneEmpty(election_url)) {
 				// 「ザ・ご当地検定」
 				driver.get(election_url);

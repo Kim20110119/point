@@ -26,7 +26,7 @@ public class Moppy_Shindan  extends Pc_Moppy {
 	/** 「WEB診断開始番号」 */
 	int start = 0;
 	/** 「WEB診断終了番号」 */
-	int end = 11;
+	int end = 10;
 	/** 「WEB診断URL」 */
 	String sindan_url;
 
@@ -49,30 +49,37 @@ public class Moppy_Shindan  extends Pc_Moppy {
 	 *
 	 */
 	public Integer execute() {
-		// WEB診断URLを取得する
-		shindan_link = driver.findElement(By.partialLinkText("診断")).getAttribute(A_HREF);
-		// WEB診断画面へ遷移する
-		driver.get(shindan_link);
-		// 1秒待ち
-		sleep(1000);
-		// WEB診断URLを取得する
-		shindan_link = driver.getCurrentUrl();
-		for(int i = start; i < end; i++){
-			// 0.5秒待ち
-			sleep(500);
-			// 診断URL
-			sindan_url = driver.findElements(By.xpath("//a[@role='button']")).get(i).getAttribute(A_HREF);
-			// WEB診断
-			driver.get(sindan_url);
-			if(start()){
-				point_count += 1;
-			}else{
-				restart();
-			}
+		try{
+			// WEB診断URLを取得する
+			shindan_link = driver.findElement(By.partialLinkText("診断")).getAttribute(A_HREF);
+			// WEB診断画面へ遷移する
 			driver.get(shindan_link);
+			// 1秒待ち
+			sleep(1000);
+			// WEB診断URLを取得する
+			shindan_link = driver.getCurrentUrl();
+			for(int i = start; i < end; i++){
+				// 0.5秒待ち
+				sleep(500);
+				// 診断URL
+				sindan_url = driver.findElements(By.xpath("//a[@role='button']")).get(i).getAttribute(A_HREF);
+				// WEB診断
+				driver.get(sindan_url);
+				if(start()){
+					point_count += 1;
+				}else{
+					restart();
+				}
+				driver.get(shindan_link);
+			}
+			driver.quit();
+			return point_count;
+		}catch (Exception e){
+			driver.quit();
+			System.out.println("【エラー】：モッピーWEB診断失敗");
+			return point_count;
 		}
-		driver.quit();
-		return point_count;
+
 	}
 
 	public Boolean start() {

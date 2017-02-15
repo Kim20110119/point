@@ -27,6 +27,10 @@ public class Pointi_Reados extends Pc_Pointi {
 	String reados_url;
 	/** 「獲得済みポイント」 */
 	int point_count = 0;
+	/** 開始Index */
+	int start = 0;
+	/** 終了Index */
+	int end = 10;
 
 	/**
 	 * コンストラクタ
@@ -57,8 +61,11 @@ public class Pointi_Reados extends Pc_Pointi {
 			driver.get(reados_url);
 			// アンケート件数
 			int enquete_count = driver.findElement(By.className(C_E_B)).findElements(By.tagName(T_A)).size();
+			if(enquete_count < end){
+				end = enquete_count;
+			}
 			// 「獲得ポイント」
-			for (int i = 0; i < enquete_count; i++) {
+			for (int i = start; i < end; i++) {
 				// 調査スタート
 				start();
 				driver.get(reados_url);

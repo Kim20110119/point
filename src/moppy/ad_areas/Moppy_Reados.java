@@ -28,13 +28,17 @@ public class Moppy_Reados extends Pc_Moppy {
 	String reados_url;
 	/** 「獲得済みポイント」 */
 	int point_count = 0;
+	/** 「アンケート件数」 */
+	int enquete_count = 0;
+	/** 開始Index */
+	int start = 0;
+	/** 終了Index */
+	int end = 10;
 
 	/**
 	 * コンストラクタ
 	 */
 	public Moppy_Reados(){
-		// 「CMくじ」
-		driver.get(PC_CM_URL);
 	}
 	/**
 	 * =================================================================================================================
@@ -50,25 +54,37 @@ public class Moppy_Reados extends Pc_Moppy {
 	 *
 	 */
 	public Integer execute() {
-		// 「クマクマ調査団URL」
-		reados_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_4).getAttribute(A_HREF);
-		if(StringUtils.isNotEmpty(reados_url)){
-			// 「クマクマ調査団画面」
-			driver.get(reados_url);
-			// アンケート件数
-			int enquete_count = driver.findElement(By.className(C_E_B)).findElements(By.tagName(T_A)).size();
-			// 「獲得ポイント」
-			for (int i = 0; i < enquete_count; i++) {
-				// 調査スタート
-				start();
+		try{
+			// 「CMくじ」
+			driver.get(PC_CM_URL);
+			// 「クマクマ調査団URL」
+			reados_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_3).getAttribute(A_HREF);
+			if(StringUtils.isNotEmpty(reados_url)){
 				// 「クマクマ調査団画面」
 				driver.get(reados_url);
+				// アンケート件数
+				enquete_count = driver.findElement(By.className(C_E_B)).findElements(By.tagName(T_A)).size();
+				if(enquete_count < end){
+					end = enquete_count;
+				}
+				// 「獲得ポイント」
+				for (int i = start; i < end; i++) {
+					// 調査スタート
+					start();
+					// 「クマクマ調査団画面」
+					driver.get(reados_url);
+				}
+			}else{
+				System.out.println("【エラー】：クマクマ調査団URL取得失敗!");
 			}
-		}else{
-			System.out.println("【エラー】：クマクマ調査団URL取得失敗!");
+			driver.quit();
+			return point_count;
+		}catch (Exception e){
+			driver.quit();
+			System.out.println("【エラー】：クマクマ調査団失敗");
+			return point_count;
 		}
-		driver.quit();
-		return point_count;
+
 	}
 
 	/**

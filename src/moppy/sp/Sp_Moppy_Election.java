@@ -28,6 +28,10 @@ public class Sp_Moppy_Election extends Sp_Moppy {
 	Boolean restart_flag = Boolean.FALSE;
 	/** 「アンケート件数」 */
 	int enquete_count = 0;
+	/** 開始Index */
+	int start = 0;
+	/** 終了Index */
+	int end = 200;
 
 	/**
 	 * コンストラクタ
@@ -65,7 +69,7 @@ public class Sp_Moppy_Election extends Sp_Moppy {
 				// 「投票画面」
 				driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0).click();
 				// 投票処理をする
-				for (int i = 0; i < 500; i++) {
+				for (int i = start; i < end; i++) {
 					start();
 					if (restart_flag) {
 						// 「クマクマ総選挙画面」

@@ -28,13 +28,16 @@ public class Pointi_Election extends Pc_Pointi {
 	Boolean restart_flag = Boolean.FALSE;
 	/** 「アンケート件数」 */
 	int enquete_count = 0;
+	/** 開始Index */
+	int start = 0;
+	/** 終了Index */
+	int end = 200;
 
 	/**
 	 * コンストラクタ
 	 */
 	public Pointi_Election() {
-		// 「CMくじ」
-		driver.get(POINTI_CF_URL);
+
 	}
 
 	/**
@@ -49,8 +52,10 @@ public class Pointi_Election extends Pc_Pointi {
 	 */
 	public Integer execute() {
 		try{
+			// 「CMくじ」
+			driver.get(POINTI_CF_URL);
 			// 「クマクマ総選挙URL」取得する
-			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(4).getAttribute(A_HREF);
+			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(2).getAttribute(A_HREF);
 			if (StringUtils.isNoneEmpty(election_url)) {
 				// 「クマクマ総選挙画面」
 				driver.get(election_url);
@@ -65,7 +70,7 @@ public class Pointi_Election extends Pc_Pointi {
 				// 「投票画面」
 				driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0).click();
 				// 投票処理をする
-				for (int i = 0; i < 500; i++) {
+				for (int i = start; i < end; i++) {
 					start();
 					if(restart_flag){
 						// アンケート件数

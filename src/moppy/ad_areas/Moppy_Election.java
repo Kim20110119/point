@@ -1,6 +1,7 @@
 package moppy.ad_areas;
 
 import static common.Common.*;
+import static common.constant.CommonConstants.*;
 import static common.constant.HtmlConstants.*;
 import static common.constant.MoppyConstants.*;
 
@@ -28,13 +29,16 @@ public class Moppy_Election extends Pc_Moppy {
 	Boolean restart_flag = Boolean.FALSE;
 	/** 「アンケート件数」 */
 	int enquete_count = 0;
+	/** 開始Index */
+	int start = 0;
+	/** 終了Index */
+	int end = 200;
 
 	/**
 	 * コンストラクタ
 	 */
 	public Moppy_Election() {
-		// 「CMくじ」
-		driver.get(PC_CM_URL);
+
 	}
 
 	/**
@@ -49,8 +53,10 @@ public class Moppy_Election extends Pc_Moppy {
 	 */
 	public Integer execute() {
 		try {
+			// 「CMくじ」
+			driver.get(PC_CM_URL);
 			// 「クマクマ総選挙URL」取得する
-			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(5)
+			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_2)
 					.getAttribute(A_HREF);
 			if (StringUtils.isNoneEmpty(election_url)) {
 				// 「クマクマ総選挙画面」
@@ -66,7 +72,7 @@ public class Moppy_Election extends Pc_Moppy {
 				// 「投票画面」
 				driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0).click();
 				// 投票処理をする
-				for (int i = 0; i < 500; i++) {
+				for (int i = start; i < end; i++) {
 					start();
 					if (restart_flag) {
 						// 「クマクマ総選挙画面」
