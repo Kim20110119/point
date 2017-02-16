@@ -21,6 +21,8 @@ public class Pc_Hapitas extends Point {
 		driver.findElement(By.id("email_main")).sendKeys(PC_LOGIN_MAIL);
 		// 【ハピタス】：ログインパスワード
 		driver.findElement(By.id("password_main")).sendKeys(PC_LOGIN_PASSWORD);
+		// 10秒待ち
+		sleep(10000);
 		// 【ハピタス】：ログインボタン
 		driver.findElement(By.className("btn_login_main_white")).click();
 	}
