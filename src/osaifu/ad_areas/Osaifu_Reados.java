@@ -51,7 +51,7 @@ public class Osaifu_Reados extends Pc_Osaifu {
 	 */
 	public Integer execute() {
 		// 「クマクマ調査団URL」
-		reados_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_3).getAttribute(A_HREF);
+		reados_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_2).getAttribute(A_HREF);
 		if(StringUtils.isNotEmpty(reados_url)){
 			// 「クマクマ調査団画面」
 			driver.get(reados_url);

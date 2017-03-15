@@ -31,6 +31,10 @@ public class Cmsite_Enquete extends Pc_Cmsite {
 	Boolean restart_flag = Boolean.FALSE;
 	/** 「アンケート件数」 */
 	int enquete_count = 0;
+	/** 「開始Index」 */
+	int start = 0;
+	/** 「開始Index」 */
+	int end = 10;
 
 	/**
 	 * コンストラクタ
@@ -53,13 +57,16 @@ public class Cmsite_Enquete extends Pc_Cmsite {
 	public Integer execute() {
 		try {
 			// 「漫画アンケートURL」取得する
-			enquete_link = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_2)
+			enquete_link = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_6)
 					.getAttribute(A_HREF);
 			if (StringUtils.isNoneEmpty(enquete_link)) {
 				// 「漫画アンケート画面」
 				driver.get(enquete_link);
-				int enquete_count = driver.findElements(By.partialLinkText("回答する")).size();
-				for(int i = 0; i < enquete_count; i++){
+				enquete_count = driver.findElements(By.partialLinkText("回答する")).size();
+				if(enquete_count < end){
+					end = enquete_count;
+				}
+				for(int i = start; i < end; i++){
 					enquete_url = driver.findElements(By.partialLinkText("回答する")).get(0).getAttribute(A_HREF);
 					driver.get(enquete_url);
 					start();

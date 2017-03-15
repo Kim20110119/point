@@ -26,7 +26,7 @@ public class Cmsite_Shindan  extends Pc_Cmsite {
 	/** 「WEB診断開始番号」 */
 	int start = 0;
 	/** 「WEB診断終了番号」 */
-	int end = 9;
+	int end = 10;
 
 	/**
 	 * コンストラクタ

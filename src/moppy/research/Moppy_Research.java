@@ -40,7 +40,7 @@ public class Moppy_Research extends Pc_Moppy {
 	/** 「開始番号」 */
 	int start = 0;
 	/** 「終了番号」 */
-	int end = 10;
+	int end = 40;
 
 	/**
 	 * コンストラクタ

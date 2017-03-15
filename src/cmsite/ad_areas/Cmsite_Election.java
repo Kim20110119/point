@@ -2,6 +2,7 @@ package cmsite.ad_areas;
 
 import static common.Common.*;
 import static common.constant.CmsiteConstants.*;
+import static common.constant.CommonConstants.*;
 import static common.constant.HtmlConstants.*;
 
 import org.apache.commons.lang3.StringUtils;
@@ -50,7 +51,7 @@ public class Cmsite_Election extends Pc_Cmsite {
 	public Integer execute() {
 		try {
 			// 「クマクマ総選挙URL」取得する
-			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(7)
+			election_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_1)
 					.getAttribute(A_HREF);
 			if (StringUtils.isNoneEmpty(election_url)) {
 				// 「クマクマ総選挙画面」
@@ -66,7 +67,7 @@ public class Cmsite_Election extends Pc_Cmsite {
 				// 「投票画面」
 				driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0).click();
 				// 投票処理をする
-				for (int i = 0; i < 500; i++) {
+				for (int i = 0; i < 200; i++) {
 					start();
 					if (restart_flag) {
 						// 「クマクマ総選挙画面」

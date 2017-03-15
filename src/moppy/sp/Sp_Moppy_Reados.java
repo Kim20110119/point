@@ -34,7 +34,7 @@ public class Sp_Moppy_Reados extends Sp_Moppy {
 	/** 開始Index */
 	int start = 0;
 	/** 終了Index */
-	int end = 10;
+	int end = 20;
 
 	/**
 	 * コンストラクタ

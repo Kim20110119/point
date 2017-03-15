@@ -58,7 +58,7 @@ public class Chance_Enquete extends Pc_Chance {
 		int enquete_count = driver.findElement(By.id(I_C_R_T)).findElements(By.tagName(T_A)).size();
 		for (int i = 0; i < enquete_count; i++) {
 			// 「アンケートURL」取得する
-			enquete_url = driver.findElement(By.id(I_C_R_T)).findElements(By.tagName(T_A)).get(0)
+			enquete_url = driver.findElement(By.id(I_C_R_T)).findElements(By.tagName(T_A)).get(i)
 					.getAttribute(A_HREF);
 			driver.get(enquete_url);
 			String current_url = driver.getCurrentUrl();
@@ -69,6 +69,7 @@ public class Chance_Enquete extends Pc_Chance {
 			} else if (current_url.matches(GQX_URL)) {
 				start();
 			}else{
+				i++;
 			}
 			// 「アンケート」
 			driver.get(PC_ENQUETE_URL);

@@ -52,7 +52,7 @@ public class Cmsite_LocalQuizs extends Pc_Cmsite {
 	 */
 	public Integer execute() {
 		// 「ザ・ご当地検定URL」取得する
-		local_quizs_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_5)
+		local_quizs_url = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_3)
 				.getAttribute(A_HREF);
 		if (StringUtils.isNoneEmpty(local_quizs_url)) {
 			// 「ザ・ご当地検定」

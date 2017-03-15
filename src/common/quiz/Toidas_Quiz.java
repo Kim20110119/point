@@ -35,7 +35,7 @@ public class Toidas_Quiz {
 		// IframeURLを取得する
 		String iframe_url = driver.findElement(By.id("toidas-frame")).getAttribute(A_SRC);
 		// 1秒待ち
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		// Iframe画面へ遷移する
 		driver.get(iframe_url);
 		// 1秒待ち
@@ -45,7 +45,7 @@ public class Toidas_Quiz {
 		// 「回答」
 		for (int i = 1; i <= 10; i++) {
 			// 1秒待ち
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			String str_item_id = "js-toidas-q" + i;
 			int answer_count = driver.findElement(By.id(str_item_id)).findElements(By.className(C_T_Q_A_I)).size();
 			driver.findElement(By.id(str_item_id)).findElements(By.className(C_T_Q_A_I)).get(int_random(answer_count))

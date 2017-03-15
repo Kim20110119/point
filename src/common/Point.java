@@ -3,6 +3,7 @@ package common;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -21,8 +22,12 @@ public class Point {
 	public Point() {
 		// Chromeドライバーをプロパティへ設定
 		System.setProperty("webdriver.chrome.driver", "lib/chromedriver.exe");
+		// Chromeドライバーオプション
+		ChromeOptions options = new ChromeOptions();
+		// ユーザーデータパスを設定する
+		options.addArguments("user-data-dir=C:/Users/kim/AppData/Local/Google/Chrome/User Data/Profile 2");
 		// Chromeドライバー
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(options);
 	}
 
 	/**

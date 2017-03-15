@@ -25,6 +25,10 @@ public class Cmsite_Manga_Enquete extends Pc_Cmsite {
 	Boolean restart_flag = Boolean.FALSE;
 	/** 「アンケート件数」 */
 	int enquete_count = 0;
+	/** 「開始Index」 */
+	int start = 0;
+	/** 「開始Index」 */
+	int end = 10;
 
 	/**
 	 * コンストラクタ
@@ -47,8 +51,11 @@ public class Cmsite_Manga_Enquete extends Pc_Cmsite {
 	public Integer execute() {
 		try {
 			// 漫画アンケート件数を取得する
-			int enquete_count = driver.findElements(By.partialLinkText("回答する")).size();
-			for(int i = 0; i < enquete_count; i++){
+			enquete_count = driver.findElements(By.partialLinkText("回答する")).size();
+			if(enquete_count < end){
+				end = enquete_count;
+			}
+			for(int i = start; i < end; i++){
 				enquete_url = driver.findElements(By.partialLinkText("回答する")).get(0).getAttribute(A_HREF);
 				driver.get(enquete_url);
 				start();

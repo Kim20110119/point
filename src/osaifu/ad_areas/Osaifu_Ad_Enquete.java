@@ -51,7 +51,7 @@ public class Osaifu_Ad_Enquete extends Pc_Osaifu {
 	public Integer execute() {
 		try {
 			// 「漫画アンケートURL」取得する
-			enquete_link = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_1)
+			enquete_link = driver.findElement(By.className(C_D_P)).findElements(By.tagName(T_A)).get(INT_4)
 					.getAttribute(A_HREF);
 			if (StringUtils.isNoneEmpty(enquete_link)) {
 				// 「漫画アンケート画面」

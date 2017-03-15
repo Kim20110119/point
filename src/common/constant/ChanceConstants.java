@@ -30,7 +30,9 @@ public class ChanceConstants {
 
 
 	/** 【PC】WEB診断URL */
-	public static final String PC_WEB_SHINDAN_URL = "http://shindan-apps.net/chanceit?uid=3435340";
+//	public static final String PC_WEB_SHINDAN_URL = "http://shindan-apps.net/fanmedia-2?uid=MB000029114887662166255JYG1M";
+	public static final String PC_WEB_SHINDAN_URL = "http://shindan-apps.net/fanmedia-2?uid=MB000029114889473903748wN81M";
+
 	/** 【PC】モリゲーURL */
 	public static final String PC_MRGA_SERVICE_URL = "http://mrga.service-navi.jp/collection";
 	/** 【PC】モリモリクイズURL */
@@ -44,9 +46,9 @@ public class ChanceConstants {
 	public static final String SP_FOREST_URL = "http://www.gendama.jp/sp/forest";
 
 	/** 【PC】ログインメールアドレス */
-	public static final String PC_LOGIN_MAIL = "takashi_19780705@yahoo.co.jp";
+	public static final String PC_LOGIN_MAIL = "kim20110119@hotmail.com";
 	/** 【PC】ログインパスワード */
-	public static final String PC_LOGIN_PASSWORD = "LXQZ0705";
+	public static final String PC_LOGIN_PASSWORD = "20110119Jjz";
 	/** 【PC】モリモリ診断URL */
 	public static final String PC_ADSURVEY_URL = ".*http://adsurvey.media-ad.jp/.*";
 	/** 【PC】モリモリMRGAアンケートURL */
@@ -56,7 +58,7 @@ public class ChanceConstants {
 
 	/** 【PC】多数決本日終了メッセージ */
 	public static final String PC_END_MESSAGE = ".*ポイントがもらえる質問がありません！また明日来てね！.*";
-	
+
 	/** 【PC】登録URL */
 	public static final String PC_REGISTER_URL = "https://www.chance.com/member/vcampaign.srv?fid=oDsTwLfUyRQ%3D";
 	/** 【PC】メールURL */
@@ -65,7 +67,7 @@ public class ChanceConstants {
 	public static final String MAIL_ID = "chance_2017";
 	/** 【PC】メールパスワード */
 	public static final String MAIL_PASS = "chance_2017";
-	
+
 	/**
 	 * =====================================================================================================================
 	 * メール一覧を取得する
@@ -165,7 +167,7 @@ public class ChanceConstants {
 
 		return list;
 	}
-	
+
 	/**
 	 * =====================================================================================================================
 	 * メール一覧を取得する
@@ -266,7 +268,7 @@ public class ChanceConstants {
 
 		return list;
 	}
-	
+
 	/**
 	 * =====================================================================================================================
 	 * ニックネーム一覧を取得する
@@ -276,7 +278,7 @@ public class ChanceConstants {
 	 *
 	 */
 	public static List<String> getNickNameList() {
-		List<String> list=new ArrayList<String>();		
+		List<String> list=new ArrayList<String>();
 		list.add("Mami_Kawana");
 		list.add("tsugio650");
 		list.add("takafumi20250");
@@ -366,7 +368,7 @@ public class ChanceConstants {
 
 		return list;
 	}
-	
+
 	/**
 	 * =====================================================================================================================
 	 * 年一覧を取得する
@@ -466,7 +468,7 @@ public class ChanceConstants {
 
 		return list;
 	}
-	
+
 	/**
 	 * =====================================================================================================================
 	 * 月一覧を取得する
@@ -566,7 +568,7 @@ public class ChanceConstants {
 
 		return list;
 	}
-	
+
 	/**
 	 * =====================================================================================================================
 	 * 日一覧を取得する
@@ -666,6 +668,6 @@ public class ChanceConstants {
 
 		return list;
 	}
-	
+
 
 }

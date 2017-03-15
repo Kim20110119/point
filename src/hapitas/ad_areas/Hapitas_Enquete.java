@@ -31,6 +31,8 @@ public class Hapitas_Enquete extends Pc_Hapitas {
 	Boolean restart_flag = Boolean.FALSE;
 	/** 「アンケート件数」 */
 	int enquete_count = 0;
+	/** 「アンケートIndex」 */
+	int enquete_index = 0;
 
 	/**
 	 * コンストラクタ
@@ -38,6 +40,10 @@ public class Hapitas_Enquete extends Pc_Hapitas {
 	public Hapitas_Enquete() {
 		// 「CMくじ」
 		driver.get(PC_CM_URL);
+		String url = driver.getCurrentUrl();
+		if(url.equals(PC_REDIRECT_CM_URL)){
+			super.redirect_login();
+		}
 	}
 
 	/**
@@ -60,7 +66,7 @@ public class Hapitas_Enquete extends Pc_Hapitas {
 				driver.get(enquete_link);
 				int enquete_count = driver.findElements(By.partialLinkText("回答する")).size();
 				for(int i = 0; i < enquete_count; i++){
-					enquete_url = driver.findElements(By.partialLinkText("回答する")).get(0).getAttribute(A_HREF);
+					enquete_url = driver.findElements(By.partialLinkText("回答する")).get(enquete_index).getAttribute(A_HREF);
 					driver.get(enquete_url);
 					start();
 					// 「漫画アンケート画面」
@@ -111,6 +117,7 @@ public class Hapitas_Enquete extends Pc_Hapitas {
 			driver.get(enquete_url);
 			Manga_enquete.execute(driver);
 		} catch (Exception e) {
+			enquete_index++;
 			System.out.println("【エラー】：漫画アンケート再スタート失敗！");
 		}
 	}

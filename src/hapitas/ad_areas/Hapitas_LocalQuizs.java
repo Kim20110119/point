@@ -38,6 +38,10 @@ public class Hapitas_LocalQuizs extends Pc_Hapitas {
 	public Hapitas_LocalQuizs() {
 		// 「CMくじ」
 		driver.get(PC_CM_URL);
+		String url = driver.getCurrentUrl();
+		if(url.equals(PC_REDIRECT_CM_URL)){
+			super.redirect_login();
+		}
 	}
 
 	/**

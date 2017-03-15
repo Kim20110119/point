@@ -25,6 +25,9 @@ public class HapitasConstants {
 	public static final String PC_ENQUETE_URL = "http://pc.moppy.jp/research/";
 	/** 【PC】:ゲームコンテンツURL */
 	public static final String PC_CM_URL = "https://hapitas.jp/item/redirect/itemid/55234/p/0/apn/movie";
+	/** 【PC】:ゲームコンテンツURL */
+	public static final String PC_REDIRECT_CM_URL = "https://hapitas.jp/auth/signin?redirect=%252Fitem%252Fredirect%252Fitemid%252F55234%252Fp%252F0%252Fapn%252Fmovie";
+
 	// ==================================================================================================================
 	// アカウント情報
 	// ==================================================================================================================

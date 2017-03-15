@@ -70,6 +70,8 @@ public class Sp_Moppy_Election extends Sp_Moppy {
 				driver.findElement(By.className("select__list")).findElements(By.tagName(T_A)).get(0).click();
 				// 投票処理をする
 				for (int i = start; i < end; i++) {
+					// 1秒待ち
+					sleep(1500);
 					start();
 					if (restart_flag) {
 						// 「クマクマ総選挙画面」
